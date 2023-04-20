@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ba"
+version = "0.1.0"
+description = ""
+authors = ["gregvoigts <gregor.voigts@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+riotwatcher = "^3.2.4"
+pydantic = "^1.10.7"
+tinydb = "^4.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
