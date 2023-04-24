@@ -56,6 +56,7 @@ for player in players_json:
             break
 
         # Get next gameIds from Riot
+        # filter for type ranked
         idList = lol_watcher.match.matchlist_by_puuid(my_region,playerWGames.puuid,start_time=playerWGames.getStartTime(),end_time=playerWGames.getEndTime(), count=100)
 
         # adapt prediction of days needed to play games

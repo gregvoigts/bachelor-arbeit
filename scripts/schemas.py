@@ -28,6 +28,10 @@ class Game(BaseModel):
     championName: Optional[str]
     gameStartTimestamp: Optional[int]
     gameEndTimestamp: Optional[int]
+    # add champs for each team
+    # add red or blue side
+    # redTeam: Optionla[List[Champs]]
+    # blueTeam: Optionla[List[Champs]]
 
 class PlayerWGames(Player):
     games: list[Game] = []
