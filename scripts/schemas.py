@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel as PydanticBaseModel, validator
 
 
@@ -19,19 +19,24 @@ class Player(BaseModel):
     def __hash__(self):
         return hash(self.name)
 
+class Participant(BaseModel):
+    deaths: int
+    championId: int
+    championName: str
+    goldEarned: int
+    kills: int
+    teamPosition:str
+    puuid:str
+    totalDamageDealtToChampions: int
+    win:bool
+    teamId:int
 class Game(BaseModel):
-    gameId: str
-    win: Optional[bool]
-    totalDamageDealtToChampions: Optional[int]
-    goldEarned: Optional[int]
-    championId: Optional[int]
-    championName: Optional[str]
+    matchId: str
     gameStartTimestamp: Optional[int]
     gameEndTimestamp: Optional[int]
-    # add champs for each team
-    # add red or blue side
-    # redTeam: Optionla[List[Champs]]
-    # blueTeam: Optionla[List[Champs]]
+    gameVersion: Optional[str]
+    participants: Optional[List[Participant]]
+
 
 class PlayerWGames(Player):
     games: list[Game] = []
@@ -48,7 +53,12 @@ class PlayerWGames(Player):
     
     @validator('lastGameTimestamp')
     def must_be_highest_timestamp(cls,v,values):
-        latest = max(values['games'], key=lambda data: data.gameEndTimestamp, default=v).gameEndTimestamp
+        latest = v
+        if not 'games' in values:
+            return v
+        for game in values['games']:
+            if game.gameEndTimestamp != None and game.gameEndTimestamp > latest:
+                latest = game.gameEndTimestamp
         print(f'{v}:{latest}')
         if v != latest:
             print(f'Unmatching timestamps for {values["name"]}')

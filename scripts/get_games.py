@@ -13,7 +13,7 @@ PlayerQ = Query()
 players_json = parse_file_as(List[schemas.Player],"players.json")
 
 # Init Riot API
-lol_watcher = LolWatcher('RGAPI-9bbd0af5-807c-4533-a1e3-e00f59d01a96')
+lol_watcher = LolWatcher('RGAPI-a536f78e-70e0-48ac-ba9f-a47842f6227f')
 my_region = 'euw1'
 
 for player in players_json:
@@ -27,23 +27,25 @@ for player in players_json:
     
     while True:
         # Find next game without information in Stored games
-        for game in playerWGames.games:
-            if game.win != None:
+        for index,game in enumerate(playerWGames.games):
+            if game.gameVersion != None:
                 continue
             # Get gameData from Riot
-            game_details = lol_watcher.match.by_id(my_region,game.gameId)
+            game_details = lol_watcher.match.by_id(my_region,game.matchId)
             # Update model and DB
-            partcipant = [x for x in game_details['info']['participants'] if x['puuid'] == playerWGames.puuid][0]
+            game_details['info']['matchId'] = game.matchId
+            playerWGames.games[index] = schemas.Game.parse_obj(game_details['info'])
+            '''partcipant = [x for x in game_details['info']['participants'] if x['puuid'] == playerWGames.puuid][0]
             game.championId = partcipant['championId']
             game.championName = partcipant['championName']
             game.gameStartTimestamp = game_details['info']['gameStartTimestamp']
             game.gameEndTimestamp = game_details['info']['gameEndTimestamp']
             game.goldEarned = partcipant['goldEarned']
             game.totalDamageDealtToChampions = partcipant['totalDamageDealtToChampions']
-            game.win = partcipant['win']
+            game.win = partcipant['win']'''
             db.update({'games':playerWGames.dict()['games']},PlayerQ.puuid == playerWGames.puuid)
 
-            # update latestGameTimestamp or earliestGameTimestamp if necessery
+            # update latestGameTimestamp if necessery
             if game.gameEndTimestamp > playerWGames.lastGameTimestamp:
                 playerWGames.lastGameTimestamp = game.gameEndTimestamp
                 db.update({'lastGameTimestamp':game.gameEndTimestamp},PlayerQ.puuid == playerWGames.puuid)
@@ -56,8 +58,7 @@ for player in players_json:
             break
 
         # Get next gameIds from Riot
-        # filter for type ranked
-        idList = lol_watcher.match.matchlist_by_puuid(my_region,playerWGames.puuid,start_time=playerWGames.getStartTime(),end_time=playerWGames.getEndTime(), count=100)
+        idList = lol_watcher.match.matchlist_by_puuid(my_region,playerWGames.puuid,start_time=playerWGames.getStartTime(),end_time=playerWGames.getEndTime(), count=100,type='ranked')
 
         # adapt prediction of days needed to play games
         if len(idList) >= 95:
@@ -79,7 +80,7 @@ for player in players_json:
             break
 
         for id in idList:
-            playerWGames.games.append(schemas.Game(gameId=id))
+            playerWGames.games.append(schemas.Game(matchId=id))
         # Store ids to DB
         db.update({'games': playerWGames.dict()['games']},PlayerQ.puuid == playerWGames.puuid)
         print(f'Added {len(idList)} Games to {playerWGames.name}.')
