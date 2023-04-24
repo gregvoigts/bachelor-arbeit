@@ -46,9 +46,9 @@ for player in players_json:
             db.update({'games':playerWGames.dict()['games']},PlayerQ.puuid == playerWGames.puuid)
 
             # update latestGameTimestamp if necessery
-            if game.gameEndTimestamp > playerWGames.lastGameTimestamp:
-                playerWGames.lastGameTimestamp = game.gameEndTimestamp
-                db.update({'lastGameTimestamp':game.gameEndTimestamp},PlayerQ.puuid == playerWGames.puuid)
+            if playerWGames.games[index].gameEndTimestamp > playerWGames.lastGameTimestamp:
+                playerWGames.lastGameTimestamp = playerWGames.games[index].gameEndTimestamp
+                db.update({'lastGameTimestamp':playerWGames.games[index].gameEndTimestamp},PlayerQ.puuid == playerWGames.puuid)
 
         print(f'All {len(playerWGames.games)} games from {playerWGames.name} where gathered')
         
