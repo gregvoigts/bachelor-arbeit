@@ -17,14 +17,15 @@ index = int(input('Typ  index of player: '))
 
 champion = input('For wich Champion?: ')
 
-player:schemas.PlayerWGames = db.get(PlayerQ.puuid == players_json[index].puuid)
+player:schemas.PlayerWGames = schemas.PlayerWGames.parse_obj(db.get(PlayerQ.puuid == players_json[index].puuid))
 
 total = 0
 win = 0
 for game in player.games:
-    if game.championName == champion:
+    participant:schemas.Participant = list(filter(lambda p: p.puuid == player.puuid,game.participants))[0]
+    if participant.championName == champion:
         total += 1
-        if game.win:
+        if participant.win:
             win += 1
 
-print(f'{player.name} has a winrate of {total/win}% on Champion {champion} in {total} games.')
+print(f'{player.name} has a winrate of {win/total*100}% on Champion {champion} in {total} games.')
