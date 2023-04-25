@@ -74,10 +74,11 @@ for player in players_json:
         if len(idList) == 100:
             continue
 
-        # If no more games found break loop
+        # If no games set current time or end time as new Start time
         if len(idList) == 0:
-            print(f'Stop search for Games for {playerWGames.name}. No more games found')
-            break
+            playerWGames.lastGameTimestamp = min(mktime(datetime.now().timetuple())*1000,playerWGames.getEndTime()*1000)
+            db.update({'lastGameTimestamp':playerWGames.lastGameTimestamp},PlayerQ.puuid == playerWGames.puuid)
+            continue
 
         for id in idList:
             playerWGames.games.append(schemas.Game(matchId=id))
