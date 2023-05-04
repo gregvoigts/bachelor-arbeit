@@ -34,6 +34,7 @@ for champ in current_champ_list['data'].keys():
             data = re.search(r'\[(\[.*?\],?)*\]',script_content).group()
             data_arr = json.loads(data)
             db.upsert({'name':champ, 'data':data_arr},Champions.name == champ)
+            print(f'Update data for {champ}')
         else:
             print("Could not find the winratehistorie div element")
     else:
