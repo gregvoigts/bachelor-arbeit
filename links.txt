@@ -1,0 +1,8 @@
+https://automl.github.io/auto-sklearn/master/
+Automatisch
+
+Random Forest
+https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees#
+
+Baue 2D Array von Daten
+Champions als 5 auf 1 blueTeam 5 auf -1 redTeam
