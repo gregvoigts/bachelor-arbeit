@@ -2,7 +2,7 @@ import autosklearn.classification
 import sklearn.metrics
 import numpy as np
 
-with np.load('game_data_champs_only.npz') as f:
+with np.load('game_data_champs_only_all.npz') as f:
     data_x = f['x']
     data_y = f['y']
 
@@ -26,5 +26,7 @@ print(y_train[0].shape)
 
 automl = autosklearn.classification.AutoSklearnClassifier(memory_limit=8192, initial_configurations_via_metalearning=25)
 automl.fit(x_train, y_train)
-y_hat = automl.predict(x_test)
-print("Accuracy score", sklearn.metrics.accuracy_score(y_test, y_hat))
+y_hat_test = automl.predict(x_test)
+y_hat_train = automl.predict(x_train)
+print("Accuracy score", sklearn.metrics.accuracy_score(y_test, y_hat_test))
+print("Train Accuracy score", sklearn.metrics.accuracy_score(y_train, y_hat_train))
