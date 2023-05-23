@@ -32,8 +32,15 @@ def get_winrate(winrates, patch: str, patches: List[schemas.Patch]):
         if p.patch == patch:
             lower = p.date
 
-    filtered_winrates = [
-        winrate for winrate in winrates if lower <= winrate[0] < upper]
+    assert lower != None, f"no lower found {patch}"
+
+    filtered_winrates = []
+    for winrate in winrates:
+        if winrate == None:
+            print(winrates)
+            continue
+        if lower <= winrate[0] < upper:
+            filtered_winrates.append(winrate)
 
     if not filtered_winrates:
         return None  # No objects found within the specified range
