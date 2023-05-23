@@ -75,6 +75,15 @@ class PlayerWGames(Player):
             print(f'Unmatching timestamps for {values["name"]}')
         return latest
 
+class PlayerstatsForChamp(BaseModel):
+    champ_name:str
+    games:int
+    winrate:float
+    kda:float
+    gold:float
+
+class PlayerWStats(Player):
+    champs:List[PlayerstatsForChamp] = []
 
 class Array_Player_Data(BaseModel):
     player_name: str = ""
