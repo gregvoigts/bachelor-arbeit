@@ -10,15 +10,32 @@ from pydantic import parse_file_as
 
 from datasetprep_util import get_player_stats, get_winrate
 
+folder = 'europe_games_full'
 
-
+leagues = ['LEC','EM','PRM','TCL','EBL','ESLOL','GLL','HM','LFL','LFL2','LPLOL','NLC','PGN','SL','UL']
 
 games: List[schemas.Array_Complet] = []
+
+players = parse_file_as(List[schemas.Player],"players.json")
 
 champ_db = TinyDB('champs.json')
 ChampQ = Query()
 
-player_db = TinyDB('pro_games.json')
+dbs = {'LEC':TinyDB('pro_games_LEC.json'),
+       'EM':TinyDB('pro_games_EM.json'),
+       'PRM':TinyDB('pro_games_PRM.json'),
+       'TCL':TinyDB('pro_games_TCL.json'),
+       'EBL':TinyDB('pro_games_EBL.json'),
+       'ESLOL':TinyDB('pro_games_ESLOL.json'),
+       'GLL':TinyDB('pro_games_GLL.json'),
+       'HM':TinyDB('pro_games_HM.json'),
+       'LFL':TinyDB('pro_games_LFL.json'),
+       'LFL2':TinyDB('pro_games_LFL2.json'),
+       'LPLOL':TinyDB('pro_games_LPLOL.json'),
+       'NLC':TinyDB('pro_games_NLC.json'),
+       'PGN':TinyDB('pro_games_PGN.json'),
+       'SL':TinyDB('pro_games_SL.json'),
+       'UL':TinyDB('pro_games_UL.json')}
 PlayerQ = Query()
 
 patches = parse_file_as(List[schemas.Patch], 'patches.json')
@@ -28,12 +45,15 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
     reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
     current_game: Optional[schemas.Array_Complet] = None
     for row in reader:
-        if row['league'] == 'LEC' and row['playername'] != '':
+        if row['league'] in leagues and row['playername'] != '':
             if current_game == None:
                 current_game = schemas.Array_Complet(gameId=row["gameid"],)
             if current_game.gameId != row["gameid"]:
-                games.append(current_game)
-                print(f"Added {current_game.gameId}")
+                if current_game.complete():
+                    games.append(current_game)
+                    print(f"Added {current_game.gameId}")
+                else:
+                    print(f"Game {current_game.gameId} incomplete")
                 current_game = schemas.Array_Complet(gameId=row["gameid"])
             champion_name = row['champion'].replace("'", "").replace(" ","")
             # WTF RIOT PLS
@@ -42,11 +62,19 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
             if champion_name == 'RenataGlasc':
                 champion_name = 'Renata'
             champ_winrates = champ_db.get(ChampQ.name.map(str.lower) == champion_name.lower())
-            player: schemas.PlayerWGames = schemas.PlayerWGames.parse_obj(
-                player_db.get(PlayerQ.name == row["playername"]))
+            player_index = players.index(schemas.Player(name=row['playername'])) # type: ignore
+            league = players[player_index].league
+            if league == None:
+                print(f'No league for player {row["playername"]}')
+                continue
+            player_raw = dbs[league].get(PlayerQ.name == row["playername"])
+            if player_raw == None:
+                print(f'No data found for player {row["playername"]} in league {row["league"]}')
+                continue
+            player: schemas.PlayerWGames = schemas.PlayerWGames.parse_obj(player_raw)
             if champ_winrates == None:
                 print(f"No champ_winrates Found for {champion_name}")
-                exit(1)
+                continue
 
             winrate = get_winrate(
                 champ_winrates['data'], row["patch"], patches)
@@ -79,4 +107,4 @@ for index,game in enumerate(games):
 print(x_arr.shape)
 print(y_arr.shape)
 
-np.savez("game_data.npz", x=x_arr, y=y_arr)
+np.savez(f"{folder}/game_data.npz", x=x_arr, y=y_arr)

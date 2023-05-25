@@ -136,20 +136,42 @@ class Array_Player_Data(BaseModel):
 class Array_Complet(BaseModel):
     gameId: str = ""
 
-    top_blue: Array_Player_Data = Array_Player_Data() # type: ignore
-    jng_blue: Array_Player_Data = Array_Player_Data()# type: ignore
-    mid_blue: Array_Player_Data = Array_Player_Data()# type: ignore
-    bot_blue: Array_Player_Data = Array_Player_Data()# type: ignore
-    sup_blue: Array_Player_Data = Array_Player_Data()# type: ignore
+    top_blue: Array_Player_Data = None # type: ignore
+    jng_blue: Array_Player_Data = None# type: ignore
+    mid_blue: Array_Player_Data = None# type: ignore
+    bot_blue: Array_Player_Data = None# type: ignore
+    sup_blue: Array_Player_Data = None# type: ignore
 
-    top_red: Array_Player_Data = Array_Player_Data()# type: ignore
-    jng_red: Array_Player_Data = Array_Player_Data()# type: ignore
-    mid_red: Array_Player_Data = Array_Player_Data()# type: ignore
-    bot_red: Array_Player_Data = Array_Player_Data()# type: ignore
-    sup_red: Array_Player_Data = Array_Player_Data()# type: ignore
+    top_red: Array_Player_Data = None# type: ignore
+    jng_red: Array_Player_Data = None# type: ignore
+    mid_red: Array_Player_Data = None# type: ignore
+    bot_red: Array_Player_Data = None# type: ignore
+    sup_red: Array_Player_Data = None# type: ignore
 
     red_win: int = 0
     blue_win: int = 0
+    
+    def complete(self) -> bool:
+        """
+        Check if all fields are not None.
+        Returns:
+            bool: True if all fields are not None, False otherwise.
+        """
+        fields = [
+            self.gameId,
+            self.top_blue,
+            self.jng_blue,
+            self.mid_blue,
+            self.bot_blue,
+            self.sup_blue,
+            self.top_red,
+            self.jng_red,
+            self.mid_red,
+            self.bot_red,
+            self.sup_red,
+        ]
+
+        return all(field is not None for field in fields)
 
     def get_arrays(self, champ_count):
         x = np.zeros(champ_count, dtype=float)
