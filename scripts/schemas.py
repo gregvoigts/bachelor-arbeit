@@ -51,7 +51,7 @@ class Game(BaseModel):
 
 
 class PlayerWGames(Player):
-    games: list[Game] = []
+    games: List[Game] = []
     lastGameTimestamp: int = start2023
     # how many days this player needs to play between 50 and 99 games
     # used in for gathering games from riot
@@ -75,6 +75,15 @@ class PlayerWGames(Player):
             print(f'Unmatching timestamps for {values["name"]}')
         return latest
 
+class PlayerstatsForChamp(BaseModel):
+    champ_name:str
+    games:int
+    winrate:float
+    kda:float
+    gold:float
+
+class PlayerWStats(Player):
+    champs:List[PlayerstatsForChamp] = []
 
 class Array_Player_Data(BaseModel):
     player_name: str = ""
@@ -161,6 +170,51 @@ class Array_Complet(BaseModel):
             self.mid_red.normalize_stats(self.mid_blue).get_array(), 
             self.bot_red.normalize_stats(self.bot_blue).get_array(), 
             self.sup_red.normalize_stats(self.sup_blue).get_array()))
+
+        y = np.array([self.blue_win, self.red_win])
+
+        return x, y
+
+class Game_simple(BaseModel):
+    gameId: str = ""
+
+    red: List[int] = []
+    blue: List[int] = []
+
+    top_blue: int = 0
+    jng_blue: int = 0
+    mid_blue: int = 0
+    bot_blue: int = 0
+    sup_blue: int = 0
+
+    top_red: int = 0
+    jng_red: int = 0
+    mid_red: int = 0
+    bot_red: int = 0
+    sup_red: int = 0
+
+    red_win: int = 0
+    blue_win: int = 0
+
+    def get_arrays(self,champ_count):
+        x = np.zeros(champ_count, dtype=float)
+        # fill champs
+        for champ in self.blue:
+            x[champ] = 1
+        for champ in self.red:
+            x[champ] = -1
+        # add winrates
+        x = np.append(x, (
+            self.top_blue, 
+            self.jng_blue, 
+            self.mid_blue, 
+            self.bot_blue, 
+            self.sup_blue, 
+            self.top_red, 
+            self.jng_red, 
+            self.mid_red, 
+            self.bot_red, 
+            self.sup_red))
 
         y = np.array([self.blue_win, self.red_win])
 
