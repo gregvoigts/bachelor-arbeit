@@ -238,6 +238,9 @@ class Game_simple(BaseModel):
             self.bot_red, 
             self.sup_red))
 
-        y = np.array([self.blue_win, self.red_win])
+        y = 0
+
+        if self.blue_win == 1:
+            y = 1
 
         return x, y
