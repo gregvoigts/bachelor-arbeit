@@ -7,6 +7,9 @@ from tinydb import TinyDB,Query
 import schemas
 from datasetprep_util import get_winrate
 
+
+folder = 'all_games_simple_v2'
+
 # init champion DB with all champions and winrates per date
 champ_db = TinyDB('champs.json')
 ChampQ = Query()
@@ -68,14 +71,31 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
 
 # init numpy arrays
 x_arr = np.zeros((len(games),len(champ_db)+(10)),float)
-y_arr = np.zeros((len(games),2),float)
+y_arr = np.zeros((len(games)),float)
 
 # fill numpy array from games
 for index,game in enumerate(games):
     x_arr[index],y_arr[index] = game.get_arrays(len(champ_db))
 
+# Search for duplicated rows and adapt winner
+for i in range(len(x_arr)):
+    if y_arr[i] != 1 and y_arr[i] != 0:
+        continue
+    duplications = []
+    for j in range(i+1,len(x_arr)):        
+        if np.array_equal(x_arr[i],x_arr[j]):
+            duplications.append(j)
+    sum = y_arr[i]
+    for row in duplications:
+        sum += y_arr[row]
+    sum = sum / (len(duplications)+1)
+    y_arr[i] = sum
+    for row in duplications:
+        y_arr[row] = sum
+    
+
 print(x_arr.shape)
 print(y_arr.shape)
 
 # save to file
-np.savez("game_data_champs_only_all.npz", x=x_arr, y=y_arr)
+np.savez(f"{folder}/game_data.npz", x=x_arr, y=y_arr)
