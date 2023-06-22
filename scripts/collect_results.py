@@ -13,6 +13,7 @@ def read_result_file(file_path):
     numbers_table = [[match[0], round(float(match[1]),2)] for match in matches]
     # calculate blueside winrate
     numbers_table[1][1] = numbers_table[1][1] / (numbers_table[0][1] + numbers_table[1][1])
+    numbers_table[3][0] = numbers_table[3][0].replace(' ','_')
     numbers_table.pop(0)
     return numbers_table
 

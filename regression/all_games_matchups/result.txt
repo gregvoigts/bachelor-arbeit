@@ -1,0 +1,8 @@
+red:1923.0
+blue:2210.0(0.5347205419791918%)
+Accuracy: Threshold    0.505051
+Score        0.573156
+Name: 50, dtype: float64
+Train Accuracy: Threshold    0.505051
+Score        0.655777
+Name: 50, dtype: float64
