@@ -3,109 +3,109 @@
         "": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.61
+            "Train_Accuracy": 0.61
         },
         "PCA": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.75
+            "Train_Accuracy": 0.75
         },
         "randsplit": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.58,
-            "Train Accuracy": 0.85
+            "Train_Accuracy": 0.85
         }
     },
     "all_games_champ_stats_only": {
         "": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.54,
-            "Train Accuracy": 0.71
+            "Train_Accuracy": 0.71
         },
         "randsplit": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.54,
-            "Train Accuracy": 0.59
+            "Train_Accuracy": 0.59
         }
     },
     "all_games_matchups": {
         "": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.64
+            "Train_Accuracy": 0.64
         },
         "PCA": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.82
+            "Train_Accuracy": 0.82
         },
         "randsplit": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.86
+            "Train_Accuracy": 0.86
         }
     },
     "all_games_simple_v2": {
         "": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.56,
-            "Train Accuracy": 0.65
+            "Train_Accuracy": 0.65
         },
         "randsplit": {
             "blue": 0.5347373517308158,
             "Accuracy": 0.58,
-            "Train Accuracy": 0.75
+            "Train_Accuracy": 0.75
         }
     },
     "europe_games_full": {
         "": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.61,
-            "Train Accuracy": 0.64
+            "Train_Accuracy": 0.64
         },
         "PCA": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.52,
-            "Train Accuracy": 0.82
+            "Train_Accuracy": 0.82
         },
         "PCA_30": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.46,
-            "Train Accuracy": 0.89
+            "Train_Accuracy": 0.89
         },
         "randsplit": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.6,
-            "Train Accuracy": 0.8
+            "Train_Accuracy": 0.8
         }
     },
     "europe_games_stats_only": {
         "": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.52,
-            "Train Accuracy": 0.88
+            "Train_Accuracy": 0.88
         },
         "randsplit": {
             "blue": 0.5364431486880467,
             "Accuracy": 0.55,
-            "Train Accuracy": 0.88
+            "Train_Accuracy": 0.88
         }
     },
     "lec_games_full": {
         "": {
             "blue": 0.5614035087719298,
             "Accuracy": 0.61,
-            "Train Accuracy": 0.88
+            "Train_Accuracy": 0.88
         },
         "PCA": {
             "blue": 0.5614035087719298,
             "Accuracy": 0.0,
-            "Train Accuracy": 0.0
+            "Train_Accuracy": 0.0
         },
         "randsplit": {
             "blue": 0.5614035087719298,
             "Accuracy": 0.57,
-            "Train Accuracy": 0.91
+            "Train_Accuracy": 0.91
         }
     }
 }
