@@ -14,6 +14,7 @@ class BaseModel(PydanticBaseModel):
 class Patch(BaseModel):
     patch: str
     date: int
+    code: float
 
 
 class Player(BaseModel):
@@ -200,6 +201,10 @@ class Array_Complet(BaseModel):
 class Game_simple(BaseModel):
     gameId: str = ""
 
+    patch: float = 0
+
+    region: int = -1
+
     red: List[int] = []
     blue: List[int] = []
 
@@ -218,13 +223,17 @@ class Game_simple(BaseModel):
     red_win: int = 0
     blue_win: int = 0
 
-    def get_arrays(self,champ_count):
+    def get_arrays(self,champ_count,league_counts):
         x = np.zeros(champ_count, dtype=float)
         # fill champs
         for champ in self.blue:
             x[champ] = 1
         for champ in self.red:
             x[champ] = -1
+        # add regions
+        # reg = np.zeros(league_counts, dtype=float)
+        # reg[self.region] = 1
+        # x = np.append(x,reg)
         # add winrates
         x = np.append(x, (
             self.top_blue, 
@@ -237,6 +246,55 @@ class Game_simple(BaseModel):
             self.mid_red, 
             self.bot_red, 
             self.sup_red))
+
+        y = 0
+
+        if self.blue_win == 1:
+            y = 1
+
+        return x, y
+
+class Game_matchup(BaseModel):
+    gameId: str = ""
+
+    red: List[int] = []
+    blue: List[int] = []
+
+    top_blue: str = ""
+    jng_blue: str = ""
+    mid_blue: str = ""
+    bot_blue: str = ""
+    sup_blue: str = ""
+
+    top_red: str = ""
+    jng_red: str = ""
+    mid_red: str = ""
+    bot_red: str = ""
+    sup_red: str = ""
+
+    top: float = 0
+    jng: float = 0
+    mid: float = 0
+    bot: float = 0
+    sup: float = 0
+
+    red_win: int = 0
+    blue_win: int = 0
+
+    def get_arrays(self,champ_count):
+        x = np.zeros(champ_count, dtype=float)
+        # fill champs
+        for champ in self.blue:
+            x[champ] = 1
+        for champ in self.red:
+            x[champ] = -1
+        # add winrates
+        x = np.append(x, (
+            self.top,
+            self.jng,
+            self.mid,
+            self.bot,
+            self.sup))
 
         y = 0
 

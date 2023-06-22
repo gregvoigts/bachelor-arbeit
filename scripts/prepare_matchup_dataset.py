@@ -5,47 +5,36 @@ from pydantic import parse_file_as
 from tinydb import TinyDB,Query
 
 import schemas
-from datasetprep_util import get_winrate
+from datasetprep_util import get_winrate, get_matchup_winrate
 
 
-folder = 'classifier/lec_games_simple'
+folder = 'regression/all_games_matchups'
 
 # init champion DB with all champions and winrates per date
-champ_db = TinyDB('champs.json')
-ChampQ = Query()
+matchup_db = TinyDB('matchups.json')
+MatchupQ = Query()
 
 # all european leagues
 leagues = ['LEC','EM','PRM','TCL','EBL','ESLOL','GLL','HM','LFL','LFL2','LPLOL','NLC','PGN','SL','UL']
 
-all_leagues = []
-
-# list with pathches and dates
-patches = parse_file_as(List[schemas.Patch], 'patches.json')
-
-games: List[schemas.Game_simple] = []
-
+games: List[schemas.Game_matchup] = []
 
 with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
-    current_game: Optional[schemas.Game_simple] = None
+    current_game: Optional[schemas.Game_matchup] = None
     # iterate over all rows and filter for leagues and skip team rows
     for row in reader:
-        if row['position'] != 'team' and row["datacompleteness"] == "complete" and row['league'] == 'LEC':
+        if row['position'] != 'team' and row["datacompleteness"] == "complete": #row['league'] in leagues and
             # create new game
-            if current_game == None or current_game.gameId != row["gameid"]:
-                # store game
-                if current_game != None:
-                    assert len(current_game.blue) == 5 and len(current_game.red) == 5, f"champ count isnt 5 for {current_game.gameId}"
-                    games.append(current_game)
-                    print(f"Added {current_game.gameId}")
-                patch = float(row['patch'])
-                try:
-                    all_leagues.index(row['league'])
-                except ValueError:
-                    all_leagues.append(row['league'])
-                current_game = schemas.Game_simple(gameId=row["gameid"],
-                                                   patch=round((patch-13)*10,1), 
-                                                    region=all_leagues.index(row['league']))#type:ignore
+            if current_game == None:
+                current_game = schemas.Game_matchup(gameId=row["gameid"],)#type:ignore
+            # store game and create new if new gameId
+            if current_game.gameId != row["gameid"]:
+                assert len(current_game.blue) == 5 and len(current_game.red) == 5, f"champ count isnt 5 for {current_game.gameId}"
+                games.append(current_game)
+                print(f"Added {current_game.gameId}")
+                current_game = schemas.Game_matchup(gameId=row["gameid"])#type:ignore
+
             # create championname
             champion_name = row['champion'].replace("'", "").replace(" ","").replace(".","")
             # WTF RIOT PLS
@@ -56,33 +45,41 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
             if champion_name == 'Nunu&Willump':
                 champion_name = 'Nunu'
             
-            # get winrate for champ on current patch
-            champ_winrates = champ_db.get(ChampQ.name.map(str.lower) == champion_name.lower())
+            # get matchups for champ 
+            champ_winrates = matchup_db.get(MatchupQ.name.map(str.lower) == champion_name.lower())
 
             assert champ_winrates != None ,f'no winrates for {champion_name}' 
-
-            if row['patch'] == None or row["patch"] == "":
-                print(current_game.gameId)     
-            winrate = get_winrate(
-                champ_winrates['data'], row["patch"], patches)
             
             # write champ_data to game object
             if row['side'] == 'Blue':
                 current_game.blue.append(champ_winrates.doc_id-1)
                 current_game.blue_win = int(row['result'])
-                current_game.__dict__[row['position'] + '_blue'] = winrate
+                current_game.__dict__[row['position'] + '_blue'] = champion_name
             if row['side'] == 'Red':
                 current_game.red.append(champ_winrates.doc_id-1)
                 current_game.red_win = int(row['result'])
-                current_game.__dict__[row['position'] + '_red'] = winrate
+                current_game.__dict__[row['position'] + '_red'] = row['champion']
+
+def get_matchups(name):
+    res = matchup_db.get(MatchupQ.name.map(str.lower) == name.lower())
+    if res == None:
+        res = matchup_db.get(MatchupQ.name.map(str.lower) == name.lower())
+    return res
+
+for game in games:
+    game.top = get_matchup_winrate(get_matchups(game.top_blue),game.top_red)
+    game.jng = get_matchup_winrate(get_matchups(game.jng_blue),game.jng_red)
+    game.mid = get_matchup_winrate(get_matchups(game.mid_blue),game.mid_red)
+    game.bot = get_matchup_winrate(get_matchups(game.bot_blue),game.bot_red)
+    game.sup = get_matchup_winrate(get_matchups(game.sup_blue),game.sup_red)
 
 # init numpy arrays
-x_arr = np.zeros((len(games),len(champ_db)+(10)),float)
+x_arr = np.zeros((len(games),len(matchup_db)+(5)),float)
 y_arr = np.zeros((len(games)),float)
 
 # fill numpy array from games
 for index,game in enumerate(games):
-    x_arr[index],y_arr[index] = game.get_arrays(len(champ_db),len(all_leagues))
+    x_arr[index],y_arr[index] = game.get_arrays(len(matchup_db))
 
 # Search for duplicated rows and adapt winner
 for i in range(len(x_arr)):

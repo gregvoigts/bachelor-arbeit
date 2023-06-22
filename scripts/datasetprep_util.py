@@ -48,6 +48,11 @@ def get_winrate(winrates, patch: str, patches: List[schemas.Patch]):
     winrate = max(filtered_winrates, key=lambda obj: obj[0])
     return winrate[1]
 
+def get_matchup_winrate(winrates,opponend):
+    for champ in winrates['matchups']:
+        if champ['name'].lower() == opponend.lower():
+            return champ['winrate']
+    return 0.5
 
 def get_player_stats(player: schemas.PlayerWGames, champ: str) -> tuple:
     """
