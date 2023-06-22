@@ -1,0 +1,58 @@
+,Dataset,Model,Value,Number
+0,all_games_champs_only,normal,blue,0.5347373517308158
+1,all_games_champs_only,normal,Accuracy,0.55
+2,all_games_champs_only,normal,Train Accuracy,0.61
+3,all_games_champs_only,PCA,blue,0.5347373517308158
+4,all_games_champs_only,PCA,Accuracy,0.55
+5,all_games_champs_only,PCA,Train Accuracy,0.75
+6,all_games_champs_only,randsplit,blue,0.5347373517308158
+7,all_games_champs_only,randsplit,Accuracy,0.58
+8,all_games_champs_only,randsplit,Train Accuracy,0.85
+9,all_games_champ_stats_only,normal,blue,0.5347373517308158
+10,all_games_champ_stats_only,normal,Accuracy,0.54
+11,all_games_champ_stats_only,normal,Train Accuracy,0.71
+12,all_games_champ_stats_only,randsplit,blue,0.5347373517308158
+13,all_games_champ_stats_only,randsplit,Accuracy,0.54
+14,all_games_champ_stats_only,randsplit,Train Accuracy,0.59
+15,all_games_matchups,normal,blue,0.5347373517308158
+16,all_games_matchups,normal,Accuracy,0.55
+17,all_games_matchups,normal,Train Accuracy,0.64
+18,all_games_matchups,PCA,blue,0.5347373517308158
+19,all_games_matchups,PCA,Accuracy,0.55
+20,all_games_matchups,PCA,Train Accuracy,0.82
+21,all_games_matchups,randsplit,blue,0.5347373517308158
+22,all_games_matchups,randsplit,Accuracy,0.55
+23,all_games_matchups,randsplit,Train Accuracy,0.86
+24,all_games_simple_v2,normal,blue,0.5347373517308158
+25,all_games_simple_v2,normal,Accuracy,0.56
+26,all_games_simple_v2,normal,Train Accuracy,0.65
+27,all_games_simple_v2,randsplit,blue,0.5347373517308158
+28,all_games_simple_v2,randsplit,Accuracy,0.58
+29,all_games_simple_v2,randsplit,Train Accuracy,0.75
+30,europe_games_full,normal,blue,0.5364431486880467
+31,europe_games_full,normal,Accuracy,0.61
+32,europe_games_full,normal,Train Accuracy,0.64
+33,europe_games_full,PCA,blue,0.5364431486880467
+34,europe_games_full,PCA,Accuracy,0.52
+35,europe_games_full,PCA,Train Accuracy,0.82
+36,europe_games_full,PCA_30,blue,0.5364431486880467
+37,europe_games_full,PCA_30,Accuracy,0.46
+38,europe_games_full,PCA_30,Train Accuracy,0.89
+39,europe_games_full,randsplit,blue,0.5364431486880467
+40,europe_games_full,randsplit,Accuracy,0.6
+41,europe_games_full,randsplit,Train Accuracy,0.8
+42,europe_games_stats_only,normal,blue,0.5364431486880467
+43,europe_games_stats_only,normal,Accuracy,0.52
+44,europe_games_stats_only,normal,Train Accuracy,0.88
+45,europe_games_stats_only,randsplit,blue,0.5364431486880467
+46,europe_games_stats_only,randsplit,Accuracy,0.55
+47,europe_games_stats_only,randsplit,Train Accuracy,0.88
+48,lec_games_full,normal,blue,0.5614035087719298
+49,lec_games_full,normal,Accuracy,0.61
+50,lec_games_full,normal,Train Accuracy,0.88
+51,lec_games_full,PCA,blue,0.5614035087719298
+52,lec_games_full,PCA,Accuracy,0.0
+53,lec_games_full,PCA,Train Accuracy,0.0
+54,lec_games_full,randsplit,blue,0.5614035087719298
+55,lec_games_full,randsplit,Accuracy,0.57
+56,lec_games_full,randsplit,Train Accuracy,0.91
