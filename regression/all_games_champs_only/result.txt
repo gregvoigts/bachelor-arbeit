@@ -1,4 +1,4 @@
 red:1923.0
 blue:2210.0(0.5347205419791918%)
-Accuracy: 0.573156
-Train Accuracy: 0.656080
+Accuracy: 0.570738
+Train Accuracy: 0.579855
