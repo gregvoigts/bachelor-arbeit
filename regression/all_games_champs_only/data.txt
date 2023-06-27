@@ -1,0 +1,7 @@
+X:
+All games from World(4133)
+0-162: Champions (1:blueside,-1:redside)
+
+Y:
+1:Blue wins
+0:Red wins

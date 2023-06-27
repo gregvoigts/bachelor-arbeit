@@ -1,0 +1,8 @@
+X:
+All games from World(4133)
+0-162: Champions (1:blueside,-1:redside)
+5 fields with Champion matchups winrates (Blueside against Redside)
+
+Y:
+1:Blue wins
+0:Red wins

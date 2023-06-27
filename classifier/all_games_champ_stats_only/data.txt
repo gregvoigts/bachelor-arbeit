@@ -1,0 +1,7 @@
+X:
+All games from World
+10 fields with Champion winrates
+
+Y:
+1:Blue wins
+0:Red wins

@@ -1,0 +1,9 @@
+X:
+All games from World
+0-162: Champions (1:blueside,-1:redside)
+163-197: Region (1 Hot)
+10 fields with Champion winrates
+
+Y:
+1:Blue wins
+0:Red wins
