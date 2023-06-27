@@ -32,11 +32,11 @@ def get_result_files(folder):
 
 
 data = []
-for root, dirs, files in os.walk('./classifier'):
+for root, dirs, files in os.walk('./regression'):
         for directory in dirs:
             folder_path = os.path.join(root, directory)
             data += [[directory] + line for line in get_result_files(folder_path)]
 
 df = pd.DataFrame(data,
                     columns=['Dataset', 'Model', 'Value', 'Number'])
-df.to_csv('./flask/static/data/result_complete.csv')
+df.to_csv('./flask/static/data/result_complete_regression.csv')
