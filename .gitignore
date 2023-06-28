@@ -3,3 +3,5 @@ __pycache__
 logs
 
 *.pkl
+
+*.h5

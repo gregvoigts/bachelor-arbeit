@@ -39,7 +39,7 @@ def auto_learn_encoded(folder):
     print(y_train.shape)
 
     # create classifier
-    automl = autosklearn.classification.AutoSklearnClassifier(memory_limit=8192,time_left_for_this_task=1800, initial_configurations_via_metalearning=25,)
+    automl = autosklearn.classification.AutoSklearnClassifier(memory_limit=8192,time_left_for_this_task=3600, initial_configurations_via_metalearning=25,)
     # fit classifier to data
     automl.fit(x_train, y_train)
 
