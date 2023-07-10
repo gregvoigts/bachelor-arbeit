@@ -124,13 +124,14 @@ class Array_Player_Data(BaseModel):
 
     # Build an numpy array with one Hot for the Champion and all the stats
     def get_array(self):
-        arr = np.zeros(6, dtype=float)
-        arr[0] = self.champ_winrate
-        arr[1] = self.pro_winrate
-        arr[2] = self.gold_avg
-        arr[3] = self.kills_avg
-        arr[4] = self.damage_avg
-        arr[5] = self.deaths_avg
+        arr = np.zeros(7, dtype=float)
+        arr[0] = self.champ
+        arr[1] = self.champ_winrate
+        arr[2] = self.pro_winrate
+        arr[3] = self.gold_avg
+        arr[4] = self.kills_avg
+        arr[5] = self.damage_avg
+        arr[6] = self.deaths_avg
         return arr
 
 
@@ -175,26 +176,25 @@ class Array_Complet(BaseModel):
         return all(field is not None for field in fields)
 
     def get_arrays(self, champ_count):
-        x = np.zeros(champ_count, dtype=float)
-        # fill champs
-        for player in [self.top_blue, self.jng_blue, self.mid_blue, self.bot_blue, self.sup_blue]:
-            x[player.champ] = 1
-        for player in [self.top_red, self.jng_red, self.mid_red, self.bot_red, self.sup_red]:
-            x[player.champ] = -1
+        x = np.zeros(0,dtype=float)
+
         # add player info
         x = np.append(x, (
-            self.top_blue.normalize_stats(self.top_red).get_array(), 
-            self.jng_blue.normalize_stats(self.jng_red).get_array(), 
-            self.mid_blue.normalize_stats(self.mid_red).get_array(), 
-            self.bot_blue.normalize_stats(self.bot_red).get_array(), 
-            self.sup_blue.normalize_stats(self.sup_red).get_array(), 
-            self.top_red.normalize_stats(self.top_blue).get_array(), 
-            self.jng_red.normalize_stats(self.jng_blue).get_array(), 
-            self.mid_red.normalize_stats(self.mid_blue).get_array(), 
-            self.bot_red.normalize_stats(self.bot_blue).get_array(), 
-            self.sup_red.normalize_stats(self.sup_blue).get_array()))
+            self.top_blue.get_array(), 
+            self.jng_blue.get_array(), 
+            self.mid_blue.get_array(), 
+            self.bot_blue.get_array(), 
+            self.sup_blue.get_array(), 
+            self.top_red.get_array(), 
+            self.jng_red.get_array(), 
+            self.mid_red.get_array(), 
+            self.bot_red.get_array(), 
+            self.sup_red.get_array()))
 
-        y = np.array([self.blue_win, self.red_win])
+        y = 0
+
+        if self.blue_win == 1:
+            y = 1
 
         return x, y
 

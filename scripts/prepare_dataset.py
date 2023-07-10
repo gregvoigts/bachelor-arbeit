@@ -10,7 +10,7 @@ from pydantic import parse_file_as
 
 from datasetprep_util import get_player_stats, get_winrate
 
-folder = 'europe_games_full'
+folder = 'classifier/europe_games_full_champid'
 
 leagues = ['LEC','EM','PRM','TCL','EBL','ESLOL','GLL','HM','LFL','LFL2','LPLOL','NLC','PGN','SL','UL']
 
@@ -98,8 +98,8 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
                 current_game.red_win = int(row['result'])
                 current_game.__dict__[row['position'] + '_red'] = player_data
 
-x_arr = np.zeros((len(games),len(champ_db)+(6*10)),float)
-y_arr = np.zeros((len(games),2),float)
+x_arr = np.zeros((len(games),(7*10)),float)
+y_arr = np.zeros((len(games)),float)
 
 for index,game in enumerate(games):
     x_arr[index],y_arr[index] = game.get_arrays(len(champ_db))
