@@ -1,8 +1,0 @@
-X:
-All games from Europe(686)
-0-162: Champions (1:blueside,-1:redside)
-6 fields for all Players with specific Information
-
-Y:
-0:Red wins
-1:Blue wins
