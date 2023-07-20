@@ -1,7 +1,7 @@
 from auto_learn import auto_learn
 from auto_regression import auto_regression
 from auto_learn_autoencode import auto_learn_encoded
-folders = ['europe_games_full_champid','lec_games_full_champid']
+folders = ['from_costaetal_self','from_costaetal_self_small']
 
 
 for folder in folders:

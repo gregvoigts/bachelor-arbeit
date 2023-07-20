@@ -39,4 +39,4 @@ for root, dirs, files in os.walk('./classifier'):
 
 df = pd.DataFrame(data,
                     columns=['Dataset', 'Model', 'Value', 'Number'])
-df.to_csv('./flask/static/data/result_complete_classifier.csv')
+df.to_csv('./flask/static/data/result_complete_classifier.csv',sep=';', decimal=',')

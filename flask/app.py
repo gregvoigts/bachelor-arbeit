@@ -57,6 +57,8 @@ def bar_classifier():
         value_type = "Accuracy"
 
     filtered = df.loc[df['Value'] == value_type]
+
+    filtered = filtered.loc[filtered['Dataset'].isin(['all_games_champ_stats_only','all_games_champs_only','all_games_matchups','all_games_simple_v2'])]
      
     # Create Bar chart
     fig = px.bar(filtered, x='Dataset', y='Number', color='Model', barmode='group')
