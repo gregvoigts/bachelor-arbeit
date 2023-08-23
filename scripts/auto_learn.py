@@ -24,7 +24,7 @@ def auto_learn(folder):
     # split data into train and test set
     # x_train, x_test = np.split(data_x,[int(.9 * len(data_x))])
     # y_train, y_test = np.split(data_y,[int(.9 * len(data_y))])
-    x_train,x_test,y_train,y_test = train_test_split(data_x,data_y,test_size=0.2, random_state=42)
+    x_train,x_test,y_train,y_test = train_test_split(data_x,data_y,test_size=0.2, random_state=15)
     print(x_train.shape)
     print(y_train.shape)
 

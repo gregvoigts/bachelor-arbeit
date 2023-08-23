@@ -6,6 +6,7 @@ from tinydb import TinyDB,Query
 from datetime import datetime as dt
 import schemas
 from datasetprep_util import get_winrate
+from riotwatcher import LolWatcher
 
 # divides two numbers
 # when division by zero return zero
@@ -150,7 +151,7 @@ class Game(schemas.BaseModel):
         return x, self.win
 
     # create array with league, patch and fields for every position
-    def get_arrays_small(self,champ_count,league_counts):
+    def get_arrays_small(self):
         x = np.zeros(0, dtype=float)
         # add winrates
         x = np.append(x, (
@@ -166,9 +167,9 @@ class Game(schemas.BaseModel):
             self.sup_red))
 
         return x, self.win
-#folder_small = 'classifier/from_costaetal_self_small'
+folder_small = 'classifier/from_costaetal_self_org'
 
-folder = 'classifier/europe_games_pro_only'
+#folder = 'classifier/europe_games_pro_only'
 
 all_leagues = []
 
@@ -176,8 +177,21 @@ all_leagues = []
 leagues = ['LEC','EM','PRM','TCL','EBL','ESLOL','GLL','HM','LFL','LFL2','LPLOL','NLC','PGN','SL','UL']
 
 # init champion DB with all champions and winrates per date
-champ_db = TinyDB('champs.json')
-ChampQ = Query()
+# champ_db = TinyDB('champs.json')
+# ChampQ = Query()
+
+lol_watcher = LolWatcher('RGAPI-9a717d94-5545-4e43-8c85-a5f6996e64d0')
+my_region = 'euw1'
+
+# First we get the latest version of the game from data dragon
+versions = lol_watcher.data_dragon.versions_for_region(my_region)
+champions_version = versions['n']['champion']
+
+# Lets get some champions
+current_champ_list = lol_watcher.data_dragon.champions(champions_version)
+current_champ_list = current_champ_list['data']
+
+current_champ_list = {key.lower(): value for key,value in current_champ_list.items()}
 
 # list with pathches and dates
 patches = parse_file_as(List[schemas.Patch], 'patches.json')
@@ -188,14 +202,14 @@ games: List[Game] = []
 
 games_small: List[Game] = []
 
-with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8') as csvfile:
+with open('2021_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
     current_game: Optional[Game] = None
     current_game_small: Optional[Game] = None
-    #endtime = dt.strptime('2021-03-24 00:00:00','%Y-%m-%d %H:%M:%S')
+    endtime = dt.strptime('2021-03-24 00:00:00','%Y-%m-%d %H:%M:%S')
     # iterate over all rows and filter for leagues and skip team rows
     for row in reader:
-        if row['position'] != 'team' and row["datacompleteness"] == "complete" and row['league'] in leagues:
+        if row['position'] != 'team' and row["datacompleteness"] == "complete":
             # create new game
             if current_game == None or current_game.gameId != row["gameid"]:
                 # store game
@@ -206,9 +220,9 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
                         print(f"Added {current_game.gameId}")
                     else:
                         print(f"Game {current_game.gameId} incomplete")
-                # t = dt.strptime(row['date'],'%Y-%m-%d %H:%M:%S')
-                # if t >= endtime:
-                #     break
+                t = dt.strptime(row['date'],'%Y-%m-%d %H:%M:%S')
+                if t >= endtime:
+                    break
                 patch = float(row['patch'])
                 try:
                     all_leagues.index(row['league'])
@@ -232,54 +246,57 @@ with open('2023_LoL_esports_match_data_from_OraclesElixir.csv', encoding='UTF-8'
                 champion_name = 'Renata'
             if champion_name == 'Nunu&Willump':
                 champion_name = 'Nunu'
-            
-            # get winrate for champ on current patch
-            champ_winrates = champ_db.get(ChampQ.name.map(str.lower) == champion_name.lower())
 
-            assert champ_winrates != None ,f'no winrates for {champion_name}' 
 
-            if row['patch'] == None or row["patch"] == "":
-                print(current_game.gameId)     
-            winrate:float = get_winrate(
-                champ_winrates['data'], row["patch"], patches) # type: ignore
+            # # get winrate for champ on current patch
+            # champ_winrates = champ_db.get(ChampQ.name.map(str.lower) == champion_name.lower())
+
+            # assert champ_winrates != None ,f'no winrates for {champion_name}' 
+
+            # if row['patch'] == None or row["patch"] == "":
+            #     print(current_game.gameId)     
+            # winrate:float = get_winrate(
+            #     champ_winrates['data'], row["patch"], patches) # type: ignore
             
             # add player data
             if row['playername'] not in players.keys():
                 players[row['playername']] = PlayerData()
             if row['champion'] not in players[row['playername']].champs.keys():
-                players[row['playername']].champs[row['champion']] = ChampData(name=row['champion'],id=champ_winrates.doc_id-1)
+                players[row['playername']].champs[row['champion']] = ChampData(name=row['champion'],id=int(current_champ_list[champion_name.lower()]['key']))
             player_array = players[row['playername']].champs[row['champion']].exportData()
-            #player_array_small = players[row['playername']].champs[row['champion']].exportDataSmall()
-            player_array = np.append(player_array,winrate)
+            player_array_small = players[row['playername']].champs[row['champion']].exportDataSmall()
+            player_array = np.append(player_array,0)
             if row['side'] == 'Blue':
                 current_game.__dict__[row['position'] + '_blue'] = player_array
             if row['side'] == 'Red':
                 current_game.__dict__[row['position'] + '_red'] = player_array
             
-            # if row['side'] == 'Blue':
-            #     current_game_small.__dict__[row['position'] + '_blue'] = player_array_small
-            # if row['side'] == 'Red':
-            #     current_game_small.__dict__[row['position'] + '_red'] = player_array_small
+            if row['side'] == 'Blue':
+                current_game_small.__dict__[row['position'] + '_blue'] = player_array_small
+            if row['side'] == 'Red':
+                current_game_small.__dict__[row['position'] + '_red'] = player_array_small
             
             # add game to player statistic
             single = ChampDataSingle.parse_obj(row)
             players[row['playername']].champs[row['champion']].addSingle(single)
 
 # init numpy arrays
-x,y = games[0].get_arrays(len(champ_db),len(all_leagues))
-x_arr = np.zeros((len(games),len(x)),float)
-y_arr = np.zeros((len(games)),float)
+# x,y = games[0].get_arrays(len(champ_db),len(all_leagues))
+# x_arr = np.zeros((len(games),len(x)),float)
+# y_arr = np.zeros((len(games)),float)
+
+print(len(games_small))
 
 # init small numpy arrays
-# x,y = games_small[0].get_arrays_small(len(champ_db),len(all_leagues))
-# x_arr_small = np.zeros((len(games),len(x)),float)
-# y_arr_small = np.zeros((len(games)),float)
+x,y = games_small[0].get_arrays_small()
+x_arr_small = np.zeros((len(games),len(x)),float)
+y_arr_small = np.zeros((len(games)),float)
 
 # fill numpy array from games
-for index,game in enumerate(games):
-    x_arr[index],y_arr[index] = game.get_arrays(len(champ_db),len(all_leagues))
-# for index,game in enumerate(games_small):
-#     x_arr_small[index],y_arr_small[index] = game.get_arrays_small(len(champ_db),len(all_leagues))
+# for index,game in enumerate(games):
+#     x_arr[index],y_arr[index] = game.get_arrays(len(champ_db),len(all_leagues))
+for index,game in enumerate(games_small):
+    x_arr_small[index],y_arr_small[index] = game.get_arrays_small()
 
 # Search for duplicated rows and adapt winner
 # for i in range(len(x_arr)):
@@ -298,12 +315,12 @@ for index,game in enumerate(games):
 #         y_arr[row] = sum
     
 
-print(x_arr.shape)
-print(y_arr.shape)
+# print(x_arr.shape)
+# print(y_arr.shape)
 
-# print(x_arr_small.shape)
-# print(y_arr_small.shape)
+print(x_arr_small.shape)
+print(y_arr_small.shape)
 
 # save to file
-np.savez(f"{folder}/game_data.npz", x=x_arr, y=y_arr)
-# np.savez(f"{folder_small}/game_data.npz", x=x_arr_small, y=y_arr_small)
+# np.savez(f"{folder}/game_data.npz", x=x_arr, y=y_arr)
+np.savez(f"{folder_small}/game_data.npz", x=x_arr_small, y=y_arr_small)
