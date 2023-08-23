@@ -11,7 +11,6 @@ from fake_useragent import UserAgent
 import schemas
 
 
-url = "https://www.leagueofgraphs.com/de/summoner/champions/{}/{}#championsData-soloqueue"
 
 url_search ="https://www.trackingthepros.com/search?s={}"
 headers = {'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"}
