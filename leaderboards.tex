@@ -1,0 +1,1172 @@
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.080           & lda                & 0.403 \\
+		1  & 2    & 0.020           & lda                & 0.407 \\
+		2  & 3    & 0.020           & lda                & 0.408 \\
+		3  & 4    & 0.040           & lda                & 0.410 \\
+		4  & 5    & 0.020           & passive-aggressive & 0.411 \\
+		5  & 6    & 0.020           & lda                & 0.411 \\
+		6  & 7    & 0.260           & random-forest      & 0.412 \\
+		7  & 8    & 0.020           & lda                & 0.412 \\
+		8  & 10   & 0.080           & lda                & 0.412 \\
+		9  & 11   & 0.100           & lda                & 0.412 \\
+		10 & 9    & 0.020           & lda                & 0.412 \\
+		11 & 12   & 0.020           & lda                & 0.412 \\
+		12 & 14   & 0.040           & lda                & 0.413 \\
+		13 & 13   & 0.080           & lda                & 0.413 \\
+		14 & 18   & 0.020           & lda                & 0.414 \\
+		15 & 16   & 0.020           & lda                & 0.414 \\
+		16 & 15   & 0.020           & lda                & 0.414 \\
+		17 & 17   & 0.020           & lda                & 0.414 \\
+		18 & 19   & 0.060           & lda                & 0.415 \\
+		19 & 20   & 0.040           & lda                & 0.415 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champs-only dataset}
+	\label{tab:lb-all-games-champs-only}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type                & cost  \\
+		0 & 1    & 0.780           & gradient-boosting   & 0.468 \\
+		1 & 2    & 0.120           & gradient-boosting   & 0.478 \\
+		2 & 3    & 0.040           & k-nearest-neighbors & 0.495 \\
+		3 & 4    & 0.060           & gaussian-nb         & 0.497 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champs-only dataset}
+	\label{tab:lb-all-games-champs-only-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.060           & lda           & 0.412 \\
+		1  & 2    & 0.060           & lda           & 0.413 \\
+		2  & 3    & 0.060           & lda           & 0.414 \\
+		3  & 5    & 0.080           & lda           & 0.414 \\
+		4  & 4    & 0.020           & lda           & 0.414 \\
+		5  & 9    & 0.200           & random-forest & 0.415 \\
+		6  & 10   & 0.020           & lda           & 0.415 \\
+		7  & 11   & 0.040           & lda           & 0.415 \\
+		8  & 6    & 0.020           & lda           & 0.415 \\
+		9  & 8    & 0.040           & lda           & 0.415 \\
+		10 & 7    & 0.040           & lda           & 0.415 \\
+		11 & 17   & 0.040           & lda           & 0.416 \\
+		12 & 16   & 0.020           & lda           & 0.416 \\
+		13 & 13   & 0.040           & lda           & 0.416 \\
+		14 & 12   & 0.020           & lda           & 0.416 \\
+		15 & 15   & 0.060           & lda           & 0.416 \\
+		16 & 14   & 0.020           & lda           & 0.416 \\
+		17 & 18   & 0.040           & lda           & 0.416 \\
+		18 & 20   & 0.020           & lda           & 0.416 \\
+		19 & 19   & 0.020           & lda           & 0.416 \\
+		20 & 23   & 0.020           & lda           & 0.417 \\
+		21 & 22   & 0.020           & lda           & 0.417 \\
+		22 & 21   & 0.040           & lda           & 0.417 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champs-only dataset}
+	\label{tab:lb-all-games-champs-only-PCA}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type        & cost  \\
+		0 & 1    & 0.040           & extra-trees & 0.444 \\
+		1 & 2    & 0.020           & extra-trees & 0.446 \\
+		2 & 3    & 0.540           & sgd         & 0.451 \\
+		3 & 4    & 0.020           & extra-trees & 0.456 \\
+		4 & 5    & 0.320           & sgd         & 0.459 \\
+		5 & 6    & 0.020           & adaboost    & 0.460 \\
+		6 & 7    & 0.020           & extra-trees & 0.462 \\
+		7 & 8    & 0.020           & lda         & 0.462 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champs-only dataset}
+	\label{tab:lb-all-games-champs-only-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type          & cost  \\
+		0 & 1    & 0.380           & sgd           & 0.412 \\
+		1 & 2    & 0.020           & lda           & 0.415 \\
+		2 & 3    & 0.020           & lda           & 0.416 \\
+		3 & 4    & 0.020           & lda           & 0.417 \\
+		4 & 5    & 0.040           & random-forest & 0.418 \\
+		5 & 6    & 0.380           & random-forest & 0.420 \\
+		6 & 7    & 0.040           & lda           & 0.420 \\
+		7 & 8    & 0.080           & lda           & 0.422 \\
+		8 & 9    & 0.020           & liblinear-svc & 0.422 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champ-stats-only dataset}
+	\label{tab:lb-all-games-champ-stats-only}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type        & cost  \\
+		0  & 1    & 0.260           & extra-trees & 0.435 \\
+		1  & 2    & 0.040           & extra-trees & 0.436 \\
+		2  & 3    & 0.180           & extra-trees & 0.436 \\
+		3  & 4    & 0.020           & extra-trees & 0.437 \\
+		4  & 5    & 0.120           & extra-trees & 0.441 \\
+		5  & 6    & 0.100           & extra-trees & 0.442 \\
+		6  & 7    & 0.120           & extra-trees & 0.442 \\
+		7  & 8    & 0.020           & gaussian-nb & 0.443 \\
+		8  & 9    & 0.040           & extra-trees & 0.445 \\
+		9  & 10   & 0.040           & extra-trees & 0.445 \\
+		10 & 11   & 0.040           & extra-trees & 0.445 \\
+		11 & 12   & 0.020           & extra-trees & 0.445 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-champ-stats-only dataset}
+	\label{tab:lb-all-games-champ-stats-only-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 2    & 0.040           & lda           & 0.409 \\
+		1  & 1    & 0.040           & lda           & 0.409 \\
+		2  & 3    & 0.040           & libsvm-svc    & 0.410 \\
+		3  & 4    & 0.020           & lda           & 0.410 \\
+		4  & 6    & 0.040           & lda           & 0.411 \\
+		5  & 5    & 0.040           & libsvm-svc    & 0.411 \\
+		6  & 7    & 0.060           & lda           & 0.412 \\
+		7  & 8    & 0.020           & lda           & 0.412 \\
+		8  & 9    & 0.120           & lda           & 0.412 \\
+		9  & 12   & 0.040           & lda           & 0.413 \\
+		10 & 10   & 0.080           & lda           & 0.413 \\
+		11 & 11   & 0.060           & lda           & 0.413 \\
+		12 & 13   & 0.060           & lda           & 0.414 \\
+		13 & 14   & 0.040           & lda           & 0.415 \\
+		14 & 18   & 0.060           & lda           & 0.416 \\
+		15 & 15   & 0.020           & lda           & 0.416 \\
+		16 & 16   & 0.020           & random-forest & 0.416 \\
+		17 & 17   & 0.020           & lda           & 0.416 \\
+		18 & 19   & 0.020           & lda           & 0.416 \\
+		19 & 22   & 0.080           & random-forest & 0.417 \\
+		20 & 20   & 0.040           & lda           & 0.417 \\
+		21 & 21   & 0.040           & lda           & 0.417 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-matchups dataset}
+	\label{tab:lb-all-games-matchups}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.020           & mlp           & 0.445 \\
+		1  & 2    & 0.020           & extra-trees   & 0.448 \\
+		2  & 3    & 0.020           & bernoulli-nb  & 0.450 \\
+		3  & 4    & 0.020           & random-forest & 0.454 \\
+		4  & 5    & 0.060           & liblinear-svc & 0.460 \\
+		5  & 6    & 0.020           & random-forest & 0.461 \\
+		6  & 7    & 0.020           & random-forest & 0.462 \\
+		7  & 8    & 0.020           & liblinear-svc & 0.463 \\
+		8  & 9    & 0.020           & lda           & 0.464 \\
+		9  & 10   & 0.640           & sgd           & 0.464 \\
+		10 & 11   & 0.100           & adaboost      & 0.464 \\
+		11 & 12   & 0.040           & liblinear-svc & 0.465 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-matchups dataset}
+	\label{tab:lb-all-games-matchups-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type          & cost  \\
+		0 & 1    & 0.040           & lda           & 0.412 \\
+		1 & 2    & 0.020           & lda           & 0.412 \\
+		2 & 3    & 0.060           & adaboost      & 0.416 \\
+		3 & 4    & 0.020           & lda           & 0.421 \\
+		4 & 5    & 0.820           & sgd           & 0.421 \\
+		5 & 6    & 0.020           & random-forest & 0.426 \\
+		6 & 7    & 0.020           & random-forest & 0.427 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-matchups dataset}
+	\label{tab:lb-all-games-matchups-PCA}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type          & cost  \\
+		0 & 1    & 0.020           & random-forest & 0.449 \\
+		1 & 2    & 0.020           & extra-trees   & 0.456 \\
+		2 & 3    & 0.020           & extra-trees   & 0.458 \\
+		3 & 4    & 0.940           & sgd           & 0.460 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-matchups dataset}
+	\label{tab:lb-all-games-matchups-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.040           & libsvm-svc         & 0.399 \\
+		1  & 2    & 0.040           & gradient-boosting  & 0.400 \\
+		2  & 3    & 0.020           & liblinear-svc      & 0.404 \\
+		3  & 4    & 0.020           & random-forest      & 0.404 \\
+		4  & 5    & 0.020           & random-forest      & 0.405 \\
+		5  & 6    & 0.020           & passive-aggressive & 0.406 \\
+		6  & 8    & 0.120           & liblinear-svc      & 0.412 \\
+		7  & 7    & 0.060           & extra-trees        & 0.412 \\
+		8  & 9    & 0.040           & liblinear-svc      & 0.412 \\
+		9  & 10   & 0.040           & liblinear-svc      & 0.414 \\
+		10 & 11   & 0.020           & gradient-boosting  & 0.415 \\
+		11 & 12   & 0.040           & liblinear-svc      & 0.416 \\
+		12 & 13   & 0.160           & adaboost           & 0.417 \\
+		13 & 14   & 0.100           & adaboost           & 0.418 \\
+		14 & 15   & 0.020           & passive-aggressive & 0.418 \\
+		15 & 16   & 0.160           & passive-aggressive & 0.418 \\
+		16 & 17   & 0.040           & random-forest      & 0.421 \\
+		17 & 19   & 0.020           & random-forest      & 0.422 \\
+		18 & 18   & 0.020           & gradient-boosting  & 0.422 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-pro-only dataset}
+	\label{tab:lb-all-games-pro-only-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.180           & random-forest      & 0.398 \\
+		1  & 2    & 0.040           & random-forest      & 0.404 \\
+		2  & 3    & 0.120           & random-forest      & 0.405 \\
+		3  & 4    & 0.040           & random-forest      & 0.405 \\
+		4  & 5    & 0.020           & random-forest      & 0.406 \\
+		5  & 6    & 0.040           & passive-aggressive & 0.407 \\
+		6  & 7    & 0.040           & random-forest      & 0.408 \\
+		7  & 8    & 0.060           & random-forest      & 0.408 \\
+		8  & 11   & 0.020           & random-forest      & 0.409 \\
+		9  & 10   & 0.040           & liblinear-svc      & 0.409 \\
+		10 & 9    & 0.020           & lda                & 0.409 \\
+		11 & 14   & 0.060           & random-forest      & 0.410 \\
+		12 & 12   & 0.100           & extra-trees        & 0.410 \\
+		13 & 13   & 0.080           & random-forest      & 0.410 \\
+		14 & 15   & 0.060           & random-forest      & 0.411 \\
+		15 & 16   & 0.040           & extra-trees        & 0.411 \\
+		16 & 17   & 0.020           & lda                & 0.411 \\
+		17 & 18   & 0.020           & random-forest      & 0.412 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-pro-only-small dataset}
+	\label{tab:lb-all-games-pro-only-small-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 2    & 0.020           & random-forest       & 0.370 \\
+		1  & 1    & 0.020           & random-forest       & 0.370 \\
+		2  & 3    & 0.020           & extra-trees         & 0.371 \\
+		3  & 4    & 0.120           & random-forest       & 0.371 \\
+		4  & 5    & 0.060           & random-forest       & 0.375 \\
+		5  & 6    & 0.080           & random-forest       & 0.377 \\
+		6  & 7    & 0.020           & random-forest       & 0.381 \\
+		7  & 8    & 0.080           & random-forest       & 0.381 \\
+		8  & 10   & 0.040           & lda                 & 0.382 \\
+		9  & 9    & 0.020           & random-forest       & 0.382 \\
+		10 & 11   & 0.020           & random-forest       & 0.385 \\
+		11 & 12   & 0.020           & extra-trees         & 0.386 \\
+		12 & 13   & 0.020           & random-forest       & 0.388 \\
+		13 & 14   & 0.020           & gradient-boosting   & 0.388 \\
+		14 & 15   & 0.140           & random-forest       & 0.389 \\
+		15 & 16   & 0.140           & adaboost            & 0.398 \\
+		16 & 17   & 0.040           & random-forest       & 0.407 \\
+		17 & 18   & 0.020           & extra-trees         & 0.411 \\
+		18 & 19   & 0.100           & k-nearest-neighbors & 0.414 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-pro-only-spring dataset}
+	\label{tab:lb-all-games-pro-only-spring-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type          & cost  \\
+		0 & 1    & 0.020           & random-forest & 0.355 \\
+		1 & 2    & 0.020           & random-forest & 0.359 \\
+		2 & 3    & 0.020           & random-forest & 0.359 \\
+		3 & 4    & 0.880           & sgd           & 0.370 \\
+		4 & 5    & 0.020           & random-forest & 0.375 \\
+		5 & 6    & 0.020           & random-forest & 0.377 \\
+		6 & 7    & 0.020           & random-forest & 0.377 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-pro-only-spring-small dataset}
+	\label{tab:lb-all-games-pro-only-spring-small-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.020           & lda                & 0.400 \\
+		1  & 2    & 0.020           & lda                & 0.400 \\
+		2  & 3    & 0.040           & lda                & 0.402 \\
+		3  & 4    & 0.020           & lda                & 0.405 \\
+		4  & 5    & 0.060           & lda                & 0.408 \\
+		5  & 6    & 0.020           & lda                & 0.408 \\
+		6  & 7    & 0.020           & random-forest      & 0.414 \\
+		7  & 8    & 0.500           & passive-aggressive & 0.419 \\
+		8  & 9    & 0.020           & random-forest      & 0.422 \\
+		9  & 10   & 0.020           & qda                & 0.423 \\
+		10 & 11   & 0.220           & random-forest      & 0.424 \\
+		11 & 12   & 0.040           & extra-trees        & 0.425 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-simple-v2 dataset}
+	\label{tab:lb-all-games-simple-v2}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type               & cost  \\
+		0 & 1    & 0.020           & random-forest      & 0.436 \\
+		1 & 2    & 0.040           & extra-trees        & 0.448 \\
+		2 & 3    & 0.020           & extra-trees        & 0.452 \\
+		3 & 4    & 0.240           & sgd                & 0.456 \\
+		4 & 5    & 0.020           & random-forest      & 0.456 \\
+		5 & 6    & 0.660           & passive-aggressive & 0.457 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-simple-v2 dataset}
+	\label{tab:lb-all-games-simple-v2-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.160           & passive-aggressive  & 0.441 \\
+		1  & 2    & 0.100           & random-forest       & 0.442 \\
+		2  & 3    & 0.020           & k-nearest-neighbors & 0.446 \\
+		3  & 4    & 0.020           & lda                 & 0.446 \\
+		4  & 5    & 0.020           & k-nearest-neighbors & 0.447 \\
+		5  & 6    & 0.020           & random-forest       & 0.448 \\
+		6  & 7    & 0.020           & lda                 & 0.448 \\
+		7  & 8    & 0.020           & gradient-boosting   & 0.452 \\
+		8  & 9    & 0.040           & lda                 & 0.453 \\
+		9  & 10   & 0.020           & random-forest       & 0.453 \\
+		10 & 11   & 0.080           & gradient-boosting   & 0.455 \\
+		11 & 12   & 0.160           & qda                 & 0.456 \\
+		12 & 13   & 0.060           & lda                 & 0.456 \\
+		13 & 14   & 0.220           & liblinear-svc       & 0.457 \\
+		14 & 15   & 0.020           & liblinear-svc       & 0.457 \\
+		15 & 16   & 0.020           & qda                 & 0.458 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-simple-v2 dataset}
+	\label{tab:lb-all-games-simple-v2-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.040           & k-nearest-neighbors & 0.444 \\
+		1  & 3    & 0.040           & random-forest       & 0.447 \\
+		2  & 2    & 0.020           & random-forest       & 0.447 \\
+		3  & 4    & 0.060           & random-forest       & 0.448 \\
+		4  & 5    & 0.020           & lda                 & 0.449 \\
+		5  & 7    & 0.020           & extra-trees         & 0.451 \\
+		6  & 6    & 0.060           & gradient-boosting   & 0.451 \\
+		7  & 9    & 0.040           & lda                 & 0.452 \\
+		8  & 8    & 0.020           & random-forest       & 0.452 \\
+		9  & 10   & 0.020           & random-forest       & 0.453 \\
+		10 & 11   & 0.020           & random-forest       & 0.453 \\
+		11 & 13   & 0.020           & random-forest       & 0.454 \\
+		12 & 14   & 0.040           & random-forest       & 0.454 \\
+		13 & 15   & 0.020           & random-forest       & 0.454 \\
+		14 & 12   & 0.020           & mlp                 & 0.454 \\
+		15 & 16   & 0.020           & random-forest       & 0.456 \\
+		16 & 18   & 0.020           & lda                 & 0.456 \\
+		17 & 17   & 0.280           & adaboost            & 0.456 \\
+		18 & 19   & 0.020           & k-nearest-neighbors & 0.457 \\
+		19 & 20   & 0.080           & gradient-boosting   & 0.458 \\
+		20 & 22   & 0.020           & qda                 & 0.458 \\
+		21 & 21   & 0.020           & random-forest       & 0.458 \\
+		22 & 23   & 0.060           & liblinear-svc       & 0.458 \\
+		23 & 24   & 0.020           & random-forest       & 0.459 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-with-patch dataset}
+	\label{tab:lb-all-games-with-patch}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type        & cost  \\
+		0  & 1    & 0.140           & extra-trees & 0.432 \\
+		1  & 2    & 0.100           & extra-trees & 0.439 \\
+		2  & 3    & 0.040           & extra-trees & 0.443 \\
+		3  & 4    & 0.060           & extra-trees & 0.445 \\
+		4  & 5    & 0.020           & extra-trees & 0.447 \\
+		5  & 6    & 0.040           & extra-trees & 0.448 \\
+		6  & 7    & 0.020           & extra-trees & 0.450 \\
+		7  & 8    & 0.020           & extra-trees & 0.454 \\
+		8  & 9    & 0.020           & mlp         & 0.455 \\
+		9  & 10   & 0.020           & lda         & 0.456 \\
+		10 & 11   & 0.040           & mlp         & 0.456 \\
+		11 & 12   & 0.020           & extra-trees & 0.456 \\
+		12 & 13   & 0.460           & sgd         & 0.458 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-with-patch dataset}
+	\label{tab:lb-all-games-with-patch-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.060           & random-forest      & 0.434 \\
+		1  & 2    & 0.020           & random-forest      & 0.435 \\
+		2  & 3    & 0.040           & random-forest      & 0.440 \\
+		3  & 4    & 0.120           & random-forest      & 0.440 \\
+		4  & 5    & 0.040           & random-forest      & 0.442 \\
+		5  & 6    & 0.040           & random-forest      & 0.443 \\
+		6  & 7    & 0.020           & random-forest      & 0.444 \\
+		7  & 8    & 0.140           & gradient-boosting  & 0.445 \\
+		8  & 9    & 0.020           & random-forest      & 0.445 \\
+		9  & 10   & 0.020           & random-forest      & 0.446 \\
+		10 & 11   & 0.020           & random-forest      & 0.446 \\
+		11 & 12   & 0.120           & lda                & 0.448 \\
+		12 & 13   & 0.060           & random-forest      & 0.448 \\
+		13 & 14   & 0.020           & random-forest      & 0.452 \\
+		14 & 15   & 0.020           & random-forest      & 0.452 \\
+		15 & 16   & 0.100           & random-forest      & 0.453 \\
+		16 & 17   & 0.100           & liblinear-svc      & 0.454 \\
+		17 & 19   & 0.020           & random-forest      & 0.455 \\
+		18 & 18   & 0.020           & passive-aggressive & 0.455 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-with-region dataset}
+	\label{tab:lb-all-games-with-region}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.080           & random-forest       & 0.452 \\
+		1  & 2    & 0.060           & random-forest       & 0.454 \\
+		2  & 3    & 0.020           & random-forest       & 0.456 \\
+		3  & 4    & 0.020           & random-forest       & 0.457 \\
+		4  & 5    & 0.020           & random-forest       & 0.458 \\
+		5  & 6    & 0.020           & random-forest       & 0.462 \\
+		6  & 7    & 0.060           & random-forest       & 0.462 \\
+		7  & 8    & 0.080           & liblinear-svc       & 0.466 \\
+		8  & 9    & 0.020           & random-forest       & 0.468 \\
+		9  & 10   & 0.040           & qda                 & 0.469 \\
+		10 & 11   & 0.020           & random-forest       & 0.470 \\
+		11 & 12   & 0.020           & gradient-boosting   & 0.472 \\
+		12 & 13   & 0.020           & random-forest       & 0.473 \\
+		13 & 14   & 0.020           & random-forest       & 0.473 \\
+		14 & 15   & 0.460           & decision-tree       & 0.474 \\
+		15 & 16   & 0.040           & k-nearest-neighbors & 0.478 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the all-games-with-region dataset}
+	\label{tab:lb-all-games-with-region-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type & cost  \\
+		0  & 1    & 0.020           & lda  & 0.343 \\
+		1  & 15   & 0.080           & lda  & 0.348 \\
+		2  & 12   & 0.020           & lda  & 0.348 \\
+		3  & 11   & 0.040           & lda  & 0.348 \\
+		4  & 17   & 0.020           & lda  & 0.348 \\
+		5  & 8    & 0.020           & lda  & 0.348 \\
+		6  & 7    & 0.040           & lda  & 0.348 \\
+		7  & 6    & 0.040           & lda  & 0.348 \\
+		8  & 5    & 0.040           & lda  & 0.348 \\
+		9  & 4    & 0.020           & lda  & 0.348 \\
+		10 & 3    & 0.020           & lda  & 0.348 \\
+		11 & 9    & 0.060           & lda  & 0.348 \\
+		12 & 18   & 0.040           & lda  & 0.348 \\
+		13 & 10   & 0.020           & lda  & 0.348 \\
+		14 & 13   & 0.040           & lda  & 0.348 \\
+		15 & 14   & 0.020           & lda  & 0.348 \\
+		16 & 16   & 0.120           & lda  & 0.348 \\
+		17 & 2    & 0.020           & lda  & 0.348 \\
+		18 & 22   & 0.040           & lda  & 0.353 \\
+		19 & 21   & 0.020           & lda  & 0.353 \\
+		20 & 20   & 0.080           & lda  & 0.353 \\
+		21 & 19   & 0.020           & lda  & 0.353 \\
+		22 & 23   & 0.040           & lda  & 0.358 \\
+		23 & 24   & 0.020           & lda  & 0.358 \\
+		24 & 25   & 0.040           & lda  & 0.368 \\
+		25 & 27   & 0.040           & lda  & 0.373 \\
+		26 & 26   & 0.020           & lda  & 0.373 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-full dataset}
+	\label{tab:lb-europe-games-full}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type        & cost  \\
+		0  & 1    & 0.100           & mlp         & 0.370 \\
+		1  & 2    & 0.020           & mlp         & 0.381 \\
+		2  & 3    & 0.020           & mlp         & 0.387 \\
+		3  & 4    & 0.120           & mlp         & 0.392 \\
+		4  & 5    & 0.020           & mlp         & 0.403 \\
+		5  & 6    & 0.040           & mlp         & 0.409 \\
+		6  & 7    & 0.020           & mlp         & 0.409 \\
+		7  & 8    & 0.020           & mlp         & 0.414 \\
+		8  & 9    & 0.080           & mlp         & 0.414 \\
+		9  & 10   & 0.080           & extra-trees & 0.420 \\
+		10 & 11   & 0.460           & adaboost    & 0.420 \\
+		11 & 12   & 0.020           & mlp         & 0.420 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-full dataset}
+	\label{tab:lb-europe-games-full-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.040           & lda                & 0.373 \\
+		1  & 2    & 0.060           & lda                & 0.373 \\
+		2  & 5    & 0.160           & lda                & 0.373 \\
+		3  & 6    & 0.020           & lda                & 0.373 \\
+		4  & 7    & 0.020           & lda                & 0.373 \\
+		5  & 4    & 0.020           & lda                & 0.373 \\
+		6  & 3    & 0.060           & lda                & 0.373 \\
+		7  & 9    & 0.020           & passive-aggressive & 0.377 \\
+		8  & 8    & 0.040           & passive-aggressive & 0.377 \\
+		9  & 10   & 0.060           & lda                & 0.382 \\
+		10 & 11   & 0.020           & lda                & 0.387 \\
+		11 & 12   & 0.040           & lda                & 0.387 \\
+		12 & 13   & 0.020           & lda                & 0.387 \\
+		13 & 15   & 0.040           & lda                & 0.387 \\
+		14 & 16   & 0.060           & lda                & 0.387 \\
+		15 & 14   & 0.020           & passive-aggressive & 0.387 \\
+		16 & 19   & 0.020           & lda                & 0.392 \\
+		17 & 18   & 0.020           & lda                & 0.392 \\
+		18 & 17   & 0.040           & lda                & 0.392 \\
+		19 & 21   & 0.120           & lda                & 0.397 \\
+		20 & 22   & 0.020           & passive-aggressive & 0.397 \\
+		21 & 20   & 0.020           & lda                & 0.397 \\
+		22 & 23   & 0.040           & lda                & 0.402 \\
+		23 & 24   & 0.020           & passive-aggressive & 0.402 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-full dataset}
+	\label{tab:lb-europe-games-full-PCA}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.060           & lda                 & 0.392 \\
+		1  & 2    & 0.040           & lda                 & 0.392 \\
+		2  & 3    & 0.040           & lda                 & 0.392 \\
+		3  & 5    & 0.080           & lda                 & 0.398 \\
+		4  & 4    & 0.160           & adaboost            & 0.398 \\
+		5  & 8    & 0.040           & lda                 & 0.403 \\
+		6  & 9    & 0.060           & lda                 & 0.403 \\
+		7  & 7    & 0.020           & libsvm-svc          & 0.403 \\
+		8  & 6    & 0.080           & lda                 & 0.403 \\
+		9  & 10   & 0.020           & lda                 & 0.409 \\
+		10 & 11   & 0.020           & lda                 & 0.409 \\
+		11 & 13   & 0.020           & lda                 & 0.414 \\
+		12 & 12   & 0.080           & lda                 & 0.414 \\
+		13 & 17   & 0.040           & k-nearest-neighbors & 0.420 \\
+		14 & 15   & 0.020           & random-forest       & 0.420 \\
+		15 & 16   & 0.140           & lda                 & 0.420 \\
+		16 & 14   & 0.080           & lda                 & 0.420 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-full dataset}
+	\label{tab:lb-europe-games-full-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.020           & gradient-boosting  & 0.359 \\
+		1  & 2    & 0.060           & extra-trees        & 0.365 \\
+		2  & 3    & 0.020           & gradient-boosting  & 0.370 \\
+		3  & 4    & 0.160           & extra-trees        & 0.376 \\
+		4  & 5    & 0.020           & gradient-boosting  & 0.381 \\
+		5  & 6    & 0.020           & gradient-boosting  & 0.387 \\
+		6  & 7    & 0.020           & extra-trees        & 0.392 \\
+		7  & 8    & 0.020           & libsvm-svc         & 0.392 \\
+		8  & 9    & 0.040           & passive-aggressive & 0.398 \\
+		9  & 10   & 0.040           & liblinear-svc      & 0.403 \\
+		10 & 12   & 0.080           & libsvm-svc         & 0.409 \\
+		11 & 15   & 0.020           & qda                & 0.409 \\
+		12 & 14   & 0.060           & extra-trees        & 0.409 \\
+		13 & 17   & 0.220           & adaboost           & 0.409 \\
+		14 & 13   & 0.060           & gradient-boosting  & 0.409 \\
+		15 & 16   & 0.020           & gradient-boosting  & 0.409 \\
+		16 & 11   & 0.020           & extra-trees        & 0.409 \\
+		17 & 20   & 0.060           & extra-trees        & 0.414 \\
+		18 & 19   & 0.020           & extra-trees        & 0.414 \\
+		19 & 18   & 0.020           & extra-trees        & 0.414 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-full-champid dataset}
+	\label{tab:lb-europe-games-full-champid-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.020           & gradient-boosting   & 0.421 \\
+		1  & 2    & 0.040           & bernoulli-nb        & 0.430 \\
+		2  & 3    & 0.020           & lda                 & 0.433 \\
+		3  & 4    & 0.020           & k-nearest-neighbors & 0.440 \\
+		4  & 5    & 0.020           & multinomial-nb      & 0.445 \\
+		5  & 6    & 0.020           & lda                 & 0.450 \\
+		6  & 7    & 0.020           & bernoulli-nb        & 0.450 \\
+		7  & 8    & 0.540           & sgd                 & 0.452 \\
+		8  & 9    & 0.240           & passive-aggressive  & 0.452 \\
+		9  & 10   & 0.040           & lda                 & 0.452 \\
+		10 & 11   & 0.020           & adaboost            & 0.452 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-simple dataset}
+	\label{tab:lb-europe-games-simple-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type              & cost  \\
+		0  & 1    & 0.460           & gradient-boosting & 0.381 \\
+		1  & 2    & 0.040           & adaboost          & 0.418 \\
+		2  & 3    & 0.020           & libsvm-svc        & 0.421 \\
+		3  & 4    & 0.040           & random-forest     & 0.428 \\
+		4  & 5    & 0.080           & lda               & 0.428 \\
+		5  & 6    & 0.020           & gradient-boosting & 0.428 \\
+		6  & 7    & 0.020           & mlp               & 0.433 \\
+		7  & 8    & 0.020           & random-forest     & 0.435 \\
+		8  & 9    & 0.020           & random-forest     & 0.435 \\
+		9  & 10   & 0.040           & adaboost          & 0.435 \\
+		10 & 11   & 0.180           & adaboost          & 0.435 \\
+		11 & 12   & 0.040           & random-forest     & 0.438 \\
+		12 & 13   & 0.020           & adaboost          & 0.438 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-simple dataset}
+	\label{tab:lb-europe-games-simple-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.060           & libsvm-svc          & 0.377 \\
+		1  & 2    & 0.040           & lda                 & 0.387 \\
+		2  & 3    & 0.040           & lda                 & 0.392 \\
+		3  & 4    & 0.060           & liblinear-svc       & 0.392 \\
+		4  & 5    & 0.120           & adaboost            & 0.397 \\
+		5  & 7    & 0.020           & lda                 & 0.402 \\
+		6  & 8    & 0.140           & liblinear-svc       & 0.402 \\
+		7  & 6    & 0.020           & adaboost            & 0.402 \\
+		8  & 13   & 0.020           & lda                 & 0.407 \\
+		9  & 10   & 0.020           & lda                 & 0.407 \\
+		10 & 9    & 0.100           & liblinear-svc       & 0.407 \\
+		11 & 11   & 0.020           & liblinear-svc       & 0.407 \\
+		12 & 12   & 0.020           & lda                 & 0.407 \\
+		13 & 14   & 0.020           & lda                 & 0.407 \\
+		14 & 15   & 0.160           & liblinear-svc       & 0.412 \\
+		15 & 18   & 0.020           & lda                 & 0.412 \\
+		16 & 16   & 0.080           & liblinear-svc       & 0.412 \\
+		17 & 17   & 0.040           & k-nearest-neighbors & 0.412 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-stats-only dataset}
+	\label{tab:lb-europe-games-stats-only}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type     & cost  \\
+		0  & 1    & 0.020           & adaboost & 0.370 \\
+		1  & 3    & 0.020           & sgd      & 0.376 \\
+		2  & 2    & 0.040           & sgd      & 0.376 \\
+		3  & 5    & 0.040           & sgd      & 0.381 \\
+		4  & 4    & 0.040           & sgd      & 0.381 \\
+		5  & 8    & 0.100           & sgd      & 0.387 \\
+		6  & 7    & 0.020           & sgd      & 0.387 \\
+		7  & 6    & 0.020           & sgd      & 0.387 \\
+		8  & 9    & 0.020           & sgd      & 0.387 \\
+		9  & 11   & 0.080           & sgd      & 0.392 \\
+		10 & 12   & 0.140           & sgd      & 0.392 \\
+		11 & 13   & 0.040           & sgd      & 0.392 \\
+		12 & 10   & 0.020           & sgd      & 0.392 \\
+		13 & 14   & 0.060           & sgd      & 0.392 \\
+		14 & 15   & 0.100           & sgd      & 0.392 \\
+		15 & 16   & 0.020           & sgd      & 0.392 \\
+		16 & 25   & 0.020           & sgd      & 0.398 \\
+		17 & 24   & 0.040           & sgd      & 0.398 \\
+		18 & 19   & 0.020           & sgd      & 0.398 \\
+		19 & 23   & 0.020           & sgd      & 0.398 \\
+		20 & 22   & 0.040           & sgd      & 0.398 \\
+		21 & 21   & 0.020           & sgd      & 0.398 \\
+		22 & 20   & 0.020           & sgd      & 0.398 \\
+		23 & 18   & 0.020           & sgd      & 0.398 \\
+		24 & 17   & 0.020           & sgd      & 0.398 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the europe-games-stats-only dataset}
+	\label{tab:lb-europe-games-stats-only-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type              & cost  \\
+		0  & 1    & 0.040           & gradient-boosting & 0.105 \\
+		1  & 2    & 0.020           & gradient-boosting & 0.108 \\
+		2  & 3    & 0.040           & gradient-boosting & 0.109 \\
+		3  & 4    & 0.080           & gradient-boosting & 0.111 \\
+		4  & 5    & 0.020           & gradient-boosting & 0.112 \\
+		5  & 7    & 0.040           & gradient-boosting & 0.116 \\
+		6  & 6    & 0.020           & gradient-boosting & 0.116 \\
+		7  & 8    & 0.020           & gradient-boosting & 0.117 \\
+		8  & 9    & 0.060           & gradient-boosting & 0.117 \\
+		9  & 11   & 0.060           & gradient-boosting & 0.120 \\
+		10 & 10   & 0.020           & gradient-boosting & 0.120 \\
+		11 & 12   & 0.020           & random-forest     & 0.121 \\
+		12 & 13   & 0.020           & random-forest     & 0.123 \\
+		13 & 16   & 0.080           & lda               & 0.124 \\
+		14 & 18   & 0.020           & gradient-boosting & 0.124 \\
+		15 & 14   & 0.180           & adaboost          & 0.124 \\
+		16 & 15   & 0.080           & gradient-boosting & 0.124 \\
+		17 & 17   & 0.020           & random-forest     & 0.124 \\
+		18 & 21   & 0.020           & lda               & 0.125 \\
+		19 & 20   & 0.020           & lda               & 0.125 \\
+		20 & 19   & 0.020           & gradient-boosting & 0.125 \\
+		21 & 22   & 0.040           & lda               & 0.128 \\
+		22 & 23   & 0.060           & sgd               & 0.129 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the from-costaetal dataset}
+	\label{tab:lb-from-costaetal-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type               & cost  \\
+		0  & 1    & 0.020           & gradient-boosting  & 0.413 \\
+		1  & 3    & 0.020           & gradient-boosting  & 0.427 \\
+		2  & 2    & 0.080           & liblinear-svc      & 0.427 \\
+		3  & 4    & 0.020           & liblinear-svc      & 0.427 \\
+		4  & 5    & 0.020           & random-forest      & 0.429 \\
+		5  & 6    & 0.060           & decision-tree      & 0.431 \\
+		6  & 7    & 0.020           & liblinear-svc      & 0.431 \\
+		7  & 8    & 0.020           & passive-aggressive & 0.432 \\
+		8  & 9    & 0.040           & random-forest      & 0.433 \\
+		9  & 10   & 0.020           & random-forest      & 0.433 \\
+		10 & 11   & 0.020           & adaboost           & 0.433 \\
+		11 & 12   & 0.080           & adaboost           & 0.434 \\
+		12 & 13   & 0.020           & random-forest      & 0.436 \\
+		13 & 14   & 0.040           & random-forest      & 0.438 \\
+		14 & 15   & 0.060           & liblinear-svc      & 0.441 \\
+		15 & 16   & 0.040           & gradient-boosting  & 0.441 \\
+		16 & 17   & 0.080           & adaboost           & 0.443 \\
+		17 & 18   & 0.040           & gradient-boosting  & 0.443 \\
+		18 & 19   & 0.040           & random-forest      & 0.443 \\
+		19 & 20   & 0.020           & gradient-boosting  & 0.444 \\
+		20 & 21   & 0.100           & sgd                & 0.444 \\
+		21 & 22   & 0.040           & qda                & 0.444 \\
+		22 & 23   & 0.100           & adaboost           & 0.444 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the from-costaetal-self dataset}
+	\label{tab:lb-from-costaetal-self-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.040           & random-forest & 0.401 \\
+		1  & 2    & 0.280           & random-forest & 0.401 \\
+		2  & 3    & 0.020           & lda           & 0.403 \\
+		3  & 4    & 0.160           & random-forest & 0.406 \\
+		4  & 5    & 0.020           & lda           & 0.406 \\
+		5  & 6    & 0.020           & lda           & 0.408 \\
+		6  & 7    & 0.020           & random-forest & 0.409 \\
+		7  & 8    & 0.080           & random-forest & 0.409 \\
+		8  & 9    & 0.020           & lda           & 0.409 \\
+		9  & 10   & 0.080           & random-forest & 0.410 \\
+		10 & 11   & 0.100           & random-forest & 0.411 \\
+		11 & 12   & 0.160           & random-forest & 0.411 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the from-costaetal-self-org dataset}
+	\label{tab:lb-from-costaetal-self-org-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.180           & random-forest & 0.406 \\
+		1  & 2    & 0.040           & random-forest & 0.417 \\
+		2  & 3    & 0.060           & random-forest & 0.421 \\
+		3  & 4    & 0.020           & random-forest & 0.422 \\
+		4  & 5    & 0.020           & random-forest & 0.423 \\
+		5  & 6    & 0.080           & random-forest & 0.427 \\
+		6  & 7    & 0.020           & random-forest & 0.427 \\
+		7  & 8    & 0.020           & random-forest & 0.429 \\
+		8  & 9    & 0.060           & mlp           & 0.430 \\
+		9  & 10   & 0.020           & lda           & 0.432 \\
+		10 & 11   & 0.040           & liblinear-svc & 0.432 \\
+		11 & 13   & 0.160           & adaboost      & 0.433 \\
+		12 & 12   & 0.020           & mlp           & 0.433 \\
+		13 & 14   & 0.040           & liblinear-svc & 0.433 \\
+		14 & 16   & 0.120           & adaboost      & 0.434 \\
+		15 & 15   & 0.020           & random-forest & 0.434 \\
+		16 & 17   & 0.020           & adaboost      & 0.436 \\
+		17 & 18   & 0.020           & lda           & 0.442 \\
+		18 & 19   & 0.040           & extra-trees   & 0.443 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the from-costaetal-self-small dataset}
+	\label{tab:lb-from-costaetal-self-small-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.260           & extra-trees   & 0.364 \\
+		1  & 2    & 0.140           & extra-trees   & 0.364 \\
+		2  & 6    & 0.020           & extra-trees   & 0.370 \\
+		3  & 4    & 0.020           & extra-trees   & 0.370 \\
+		4  & 3    & 0.020           & extra-trees   & 0.370 \\
+		5  & 5    & 0.040           & extra-trees   & 0.370 \\
+		6  & 7    & 0.020           & extra-trees   & 0.377 \\
+		7  & 8    & 0.020           & extra-trees   & 0.382 \\
+		8  & 10   & 0.020           & extra-trees   & 0.387 \\
+		9  & 12   & 0.040           & extra-trees   & 0.387 \\
+		10 & 13   & 0.020           & extra-trees   & 0.387 \\
+		11 & 14   & 0.020           & extra-trees   & 0.387 \\
+		12 & 11   & 0.060           & extra-trees   & 0.387 \\
+		13 & 9    & 0.020           & extra-trees   & 0.387 \\
+		14 & 15   & 0.120           & decision-tree & 0.388 \\
+		15 & 16   & 0.040           & extra-trees   & 0.394 \\
+		16 & 19   & 0.020           & extra-trees   & 0.394 \\
+		17 & 18   & 0.040           & extra-trees   & 0.394 \\
+		18 & 17   & 0.020           & extra-trees   & 0.394 \\
+		19 & 21   & 0.020           & extra-trees   & 0.394 \\
+		20 & 20   & 0.020           & extra-trees   & 0.394 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-full dataset}
+	\label{tab:lb-lec-games-full}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type                & cost  \\
+		0  & 1    & 0.140           & mlp                 & 0.302 \\
+		1  & 2    & 0.120           & k-nearest-neighbors & 0.311 \\
+		2  & 3    & 0.240           & k-nearest-neighbors & 0.315 \\
+		3  & 4    & 0.120           & mlp                 & 0.333 \\
+		4  & 5    & 0.140           & lda                 & 0.334 \\
+		5  & 6    & 0.020           & mlp                 & 0.334 \\
+		6  & 7    & 0.120           & mlp                 & 0.336 \\
+		7  & 8    & 0.020           & mlp                 & 0.342 \\
+		8  & 9    & 0.020           & mlp                 & 0.342 \\
+		9  & 10   & 0.020           & mlp                 & 0.342 \\
+		10 & 11   & 0.020           & mlp                 & 0.342 \\
+		11 & 12   & 0.020           & mlp                 & 0.342 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-full dataset}
+	\label{tab:lb-lec-games-full-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type & cost  \\
+		0  & 1    & 0.060           & mlp  & 0.340 \\
+		1  & 29   & 0.040           & mlp  & 0.340 \\
+		2  & 28   & 0.040           & mlp  & 0.340 \\
+		3  & 27   & 0.060           & mlp  & 0.340 \\
+		4  & 26   & 0.020           & mlp  & 0.340 \\
+		5  & 25   & 0.060           & mlp  & 0.340 \\
+		6  & 24   & 0.020           & mlp  & 0.340 \\
+		7  & 23   & 0.060           & mlp  & 0.340 \\
+		8  & 22   & 0.020           & mlp  & 0.340 \\
+		9  & 21   & 0.020           & mlp  & 0.340 \\
+		10 & 20   & 0.020           & mlp  & 0.340 \\
+		11 & 19   & 0.040           & mlp  & 0.340 \\
+		12 & 18   & 0.020           & mlp  & 0.340 \\
+		13 & 17   & 0.040           & mlp  & 0.340 \\
+		14 & 30   & 0.040           & mlp  & 0.340 \\
+		15 & 16   & 0.020           & mlp  & 0.340 \\
+		16 & 14   & 0.020           & mlp  & 0.340 \\
+		17 & 13   & 0.040           & mlp  & 0.340 \\
+		18 & 12   & 0.020           & mlp  & 0.340 \\
+		19 & 11   & 0.020           & mlp  & 0.340 \\
+		20 & 10   & 0.020           & mlp  & 0.340 \\
+		21 & 9    & 0.040           & mlp  & 0.340 \\
+		22 & 8    & 0.060           & mlp  & 0.340 \\
+		23 & 7    & 0.020           & mlp  & 0.340 \\
+		24 & 6    & 0.020           & mlp  & 0.340 \\
+		25 & 5    & 0.020           & mlp  & 0.340 \\
+		26 & 4    & 0.040           & mlp  & 0.340 \\
+		27 & 3    & 0.020           & mlp  & 0.340 \\
+		28 & 2    & 0.020           & mlp  & 0.340 \\
+		29 & 15   & 0.020           & mlp  & 0.340 \\
+		30 & 31   & 0.040           & mlp  & 0.340 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-full dataset}
+	\label{tab:lb-lec-games-full-PCA}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.040           & random-forest & 0.182 \\
+		1  & 31   & 0.040           & random-forest & 0.182 \\
+		2  & 30   & 0.020           & random-forest & 0.182 \\
+		3  & 29   & 0.020           & random-forest & 0.182 \\
+		4  & 28   & 0.020           & random-forest & 0.182 \\
+		5  & 27   & 0.020           & random-forest & 0.182 \\
+		6  & 26   & 0.020           & random-forest & 0.182 \\
+		7  & 25   & 0.020           & random-forest & 0.182 \\
+		8  & 24   & 0.040           & random-forest & 0.182 \\
+		9  & 23   & 0.020           & random-forest & 0.182 \\
+		10 & 22   & 0.040           & random-forest & 0.182 \\
+		11 & 21   & 0.060           & random-forest & 0.182 \\
+		12 & 20   & 0.020           & random-forest & 0.182 \\
+		13 & 19   & 0.020           & random-forest & 0.182 \\
+		14 & 18   & 0.020           & random-forest & 0.182 \\
+		15 & 32   & 0.060           & random-forest & 0.182 \\
+		16 & 17   & 0.040           & random-forest & 0.182 \\
+		17 & 15   & 0.020           & random-forest & 0.182 \\
+		18 & 14   & 0.040           & random-forest & 0.182 \\
+		19 & 13   & 0.040           & random-forest & 0.182 \\
+		20 & 12   & 0.020           & random-forest & 0.182 \\
+		21 & 11   & 0.020           & random-forest & 0.182 \\
+		22 & 10   & 0.020           & random-forest & 0.182 \\
+		23 & 9    & 0.040           & random-forest & 0.182 \\
+		24 & 8    & 0.060           & random-forest & 0.182 \\
+		25 & 7    & 0.020           & random-forest & 0.182 \\
+		26 & 6    & 0.060           & random-forest & 0.182 \\
+		27 & 5    & 0.040           & random-forest & 0.182 \\
+		28 & 4    & 0.020           & random-forest & 0.182 \\
+		29 & 3    & 0.020           & random-forest & 0.182 \\
+		30 & 2    & 0.020           & random-forest & 0.182 \\
+		31 & 16   & 0.020           & random-forest & 0.182 \\
+		32 & 33   & 0.020           & random-forest & 0.182 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-full dataset}
+	\label{tab:lb-lec-games-full-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type & cost  \\
+		0  & 1    & 0.020           & lda  & 0.222 \\
+		1  & 19   & 0.020           & lda  & 0.222 \\
+		2  & 20   & 0.020           & lda  & 0.222 \\
+		3  & 21   & 0.040           & lda  & 0.222 \\
+		4  & 22   & 0.020           & lda  & 0.222 \\
+		5  & 23   & 0.060           & lda  & 0.222 \\
+		6  & 24   & 0.020           & lda  & 0.222 \\
+		7  & 26   & 0.020           & lda  & 0.222 \\
+		8  & 33   & 0.040           & lda  & 0.222 \\
+		9  & 27   & 0.020           & lda  & 0.222 \\
+		10 & 28   & 0.060           & lda  & 0.222 \\
+		11 & 29   & 0.020           & lda  & 0.222 \\
+		12 & 30   & 0.020           & lda  & 0.222 \\
+		13 & 31   & 0.020           & lda  & 0.222 \\
+		14 & 32   & 0.040           & lda  & 0.222 \\
+		15 & 18   & 0.040           & lda  & 0.222 \\
+		16 & 17   & 0.020           & lda  & 0.222 \\
+		17 & 16   & 0.040           & lda  & 0.222 \\
+		18 & 15   & 0.040           & lda  & 0.222 \\
+		19 & 14   & 0.020           & lda  & 0.222 \\
+		20 & 13   & 0.020           & lda  & 0.222 \\
+		21 & 12   & 0.020           & lda  & 0.222 \\
+		22 & 11   & 0.020           & lda  & 0.222 \\
+		23 & 10   & 0.020           & lda  & 0.222 \\
+		24 & 9    & 0.020           & lda  & 0.222 \\
+		25 & 8    & 0.080           & lda  & 0.222 \\
+		26 & 7    & 0.020           & lda  & 0.222 \\
+		27 & 6    & 0.040           & lda  & 0.222 \\
+		28 & 5    & 0.020           & lda  & 0.222 \\
+		29 & 4    & 0.020           & lda  & 0.222 \\
+		30 & 3    & 0.020           & lda  & 0.222 \\
+		31 & 2    & 0.040           & lda  & 0.222 \\
+		32 & 25   & 0.020           & lda  & 0.222 \\
+		33 & 34   & 0.040           & lda  & 0.222 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-full-champid dataset}
+	\label{tab:lb-lec-games-full-champid-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type        & cost  \\
+		0  & 1    & 0.020           & lda         & 0.289 \\
+		1  & 2    & 0.040           & lda         & 0.289 \\
+		2  & 3    & 0.020           & lda         & 0.289 \\
+		3  & 4    & 0.020           & lda         & 0.289 \\
+		4  & 5    & 0.020           & lda         & 0.289 \\
+		5  & 6    & 0.020           & lda         & 0.289 \\
+		6  & 7    & 0.640           & extra-trees & 0.289 \\
+		7  & 8    & 0.020           & lda         & 0.289 \\
+		8  & 9    & 0.040           & lda         & 0.289 \\
+		9  & 10   & 0.020           & lda         & 0.289 \\
+		10 & 11   & 0.020           & lda         & 0.289 \\
+		11 & 12   & 0.020           & lda         & 0.289 \\
+		12 & 13   & 0.020           & lda         & 0.289 \\
+		13 & 14   & 0.020           & lda         & 0.289 \\
+		14 & 15   & 0.020           & lda         & 0.289 \\
+		15 & 16   & 0.040           & lda         & 0.289 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-simple dataset}
+	\label{tab:lb-lec-games-simple-autoencode}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		   & rank & ensemble-weight & type          & cost  \\
+		0  & 1    & 0.020           & random-forest & 0.289 \\
+		1  & 25   & 0.020           & random-forest & 0.289 \\
+		2  & 24   & 0.020           & random-forest & 0.289 \\
+		3  & 23   & 0.020           & random-forest & 0.289 \\
+		4  & 22   & 0.020           & random-forest & 0.289 \\
+		5  & 21   & 0.020           & random-forest & 0.289 \\
+		6  & 20   & 0.020           & random-forest & 0.289 \\
+		7  & 19   & 0.040           & random-forest & 0.289 \\
+		8  & 18   & 0.020           & random-forest & 0.289 \\
+		9  & 17   & 0.040           & random-forest & 0.289 \\
+		10 & 16   & 0.020           & random-forest & 0.289 \\
+		11 & 15   & 0.020           & random-forest & 0.289 \\
+		12 & 26   & 0.020           & random-forest & 0.289 \\
+		13 & 14   & 0.040           & random-forest & 0.289 \\
+		14 & 12   & 0.040           & random-forest & 0.289 \\
+		15 & 11   & 0.040           & random-forest & 0.289 \\
+		16 & 10   & 0.060           & random-forest & 0.289 \\
+		17 & 9    & 0.060           & random-forest & 0.289 \\
+		18 & 8    & 0.040           & random-forest & 0.289 \\
+		19 & 7    & 0.080           & random-forest & 0.289 \\
+		20 & 6    & 0.020           & random-forest & 0.289 \\
+		21 & 5    & 0.060           & random-forest & 0.289 \\
+		22 & 4    & 0.080           & random-forest & 0.289 \\
+		23 & 3    & 0.040           & random-forest & 0.289 \\
+		24 & 2    & 0.060           & random-forest & 0.289 \\
+		25 & 13   & 0.020           & random-forest & 0.289 \\
+		26 & 27   & 0.060           & random-forest & 0.289 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble model trained with the lec-games-simple dataset}
+	\label{tab:lb-lec-games-simple-randsplit}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type              & cost  \\
+		0 & 1    & 0.600           & gradient-boosting & 0.996 \\
+		1 & 2    & 0.020           & gradient-boosting & 1.000 \\
+		2 & 3    & 0.380           & extra-trees       & 1.003 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble regression model trained with the all-games-champs-only dataset}
+	\label{tab:lb-reg-all-games-champs-only}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type              & cost  \\
+		0 & 1    & 0.600           & gradient-boosting & 0.996 \\
+		1 & 2    & 0.020           & gradient-boosting & 1.000 \\
+		2 & 3    & 0.380           & extra-trees       & 1.003 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble regression model trained with the all-games-champ-stats-only dataset}
+	\label{tab:lb-reg-all-games-champ-stats-only}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type           & cost  \\
+		0 & 1    & 0.460           & ard-regression & 0.982 \\
+		1 & 2    & 0.080           & ard-regression & 0.983 \\
+		2 & 3    & 0.360           & random-forest  & 0.987 \\
+		3 & 4    & 0.100           & ard-regression & 0.991 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble regression model trained with the all-games-matchups dataset}
+	\label{tab:lb-reg-all-games-matchups}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lrrlr}
+		  & rank & ensemble-weight & type           & cost  \\
+		0 & 1    & 0.220           & ard-regression & 0.977 \\
+		1 & 2    & 0.280           & ard-regression & 0.979 \\
+		2 & 3    & 0.240           & sgd            & 0.983 \\
+		3 & 4    & 0.260           & extra-trees    & 0.993 \\
+	\end{tabular}
+
+	\caption{Leaderboard for the ensemble regression model trained with the all-games-simple-v2 dataset}
+	\label{tab:lb-reg-all-games-simple-v2}
+\end{table}

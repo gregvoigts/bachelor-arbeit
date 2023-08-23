@@ -1,0 +1,31 @@
+
+    \begin{table}[]
+        \centering
+        \begin{tabular}{lrrlr}
+ & rank & ensemble-weight & type & cost \\
+0 & 1 & 0.040 & sgd & 0.358 \\
+1 & 2 & 0.040 & sgd & 0.363 \\
+2 & 3 & 0.020 & sgd & 0.368 \\
+3 & 4 & 0.240 & qda & 0.373 \\
+4 & 6 & 0.020 & gaussian-nb & 0.382 \\
+5 & 5 & 0.020 & sgd & 0.382 \\
+6 & 10 & 0.060 & adaboost & 0.387 \\
+7 & 8 & 0.020 & sgd & 0.387 \\
+8 & 9 & 0.020 & passive-aggressive & 0.387 \\
+9 & 7 & 0.020 & sgd & 0.387 \\
+10 & 13 & 0.020 & gradient-boosting & 0.392 \\
+11 & 11 & 0.080 & random-forest & 0.392 \\
+12 & 12 & 0.060 & random-forest & 0.392 \\
+13 & 15 & 0.040 & libsvm-svc & 0.397 \\
+14 & 14 & 0.020 & mlp & 0.397 \\
+15 & 16 & 0.060 & lda & 0.397 \\
+16 & 17 & 0.080 & k-nearest-neighbors & 0.397 \\
+17 & 18 & 0.020 & extra-trees & 0.397 \\
+18 & 20 & 0.040 & mlp & 0.402 \\
+19 & 19 & 0.040 & random-forest & 0.402 \\
+20 & 21 & 0.040 & extra-trees & 0.402 \\
+\end{tabular}
+
+        \caption{Leaderboard for the ensemble model trained with the europe_games_full dataset}
+        \label{tab:lb_europe_games_full_PCA_30}
+    \end{table}
