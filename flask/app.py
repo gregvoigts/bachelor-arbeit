@@ -37,7 +37,7 @@ def bar_regression():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     # create button urls
-    url=request.base_url
+    url="http://127.0.0.1:5000/"
     url = url + 'regression'
     url_blue = f'{url}?value=blue'
     url_acc = f'{url}?value=Accuracy'
@@ -67,7 +67,7 @@ def bar_classifier():
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     # create button urls
-    url=request.base_url
+    url="http://127.0.0.1:5000/"
     url = url + 'classifier'
     url_blue = f'{url}?value=blue'
     url_acc = f'{url}?value=Accuracy'
